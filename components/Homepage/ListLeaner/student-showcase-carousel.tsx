@@ -24,8 +24,8 @@ export default function StudentShowcaseCarousel({
   // increase speeds here (topRow, bottomRow)
   return (
     <div className="flex flex-col gap-4 overflow-hidden">
-      <ScrollingRow learners={topRow} reverse={false} speed={1.4} />
-      <ScrollingRow learners={bottomRow} reverse={true} speed={2.2} />
+      <ScrollingRow learners={topRow} reverse={false} speed={1.2} />
+      <ScrollingRow learners={bottomRow} reverse={true} speed={1.2} />
     </div>
   );
 }

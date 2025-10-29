@@ -795,7 +795,7 @@ export default function AchievementsSection() {
           <span className="text-accent text-4xl">100.000+</span> Học viên
         </h2>
         <h3 className="text-3xl font-semibold text-[#334155] mb-6">
-          đạt thành tích cao sau khi học tại Prep
+          đạt thành tích cao sau khi học tại DraVie
         </h3>
       </div>
       <StudentShowcaseCarousel learners={learners} />

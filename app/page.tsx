@@ -3,10 +3,14 @@ import CourseCarousel from "@/components/CourseCarousel";
 import Banner from "@/components/Homepage/Banner";
 import FeatureCourses from "@/components/Homepage/FeatureCourses";
 import FeaturedStudent from "@/components/Homepage/FeaturedStudent";
+import SectionFeedbacks from "@/components/Homepage/FeedBack/SectionFeedbacks";
 import AchievementsSection from "@/components/Homepage/ListLeaner/AchievementsSection";
+import NewspaperSection from "@/components/Homepage/NewspaperSection";
+import PartnerSection from "@/components/Homepage/PartnerSection";
 import RecommendPrograms from "@/components/Homepage/RecommendPrograms";
 import IeltsCard from "@/components/IeltsCard";
 import Navbar from "@/components/Navbar";
+import { hskCourses } from "@/mock/course/hskCourses";
 
 export default function Home() {
   const courses = [
@@ -96,8 +100,11 @@ export default function Home() {
         <div className="bg-[#F7FAFC]">
           <FeatureCourses />
           <FeaturedStudent />
-          <RecommendPrograms />
           <AchievementsSection />
+          <SectionFeedbacks />
+          <PartnerSection />
+          <RecommendPrograms />
+          <NewspaperSection />
           <div className="p-6">
             <CourseCarousel courses={courses} />
           </div>
