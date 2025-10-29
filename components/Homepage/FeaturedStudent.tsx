@@ -2,8 +2,25 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-
-const students = {
+type Student = {
+  name: string;
+  image: string;
+  quote: string;
+  scores:
+    | {
+        overall: string;
+        listening: string;
+        reading: string;
+      }
+    | {
+        overall: string;
+        listening: string;
+        reading: string;
+        speaking: string;
+        writing: string;
+      };
+};
+const students: Record<"TOEIC" | "IELTS", Student> = {
   TOEIC: {
     name: "Bảo Trân",
     image:
