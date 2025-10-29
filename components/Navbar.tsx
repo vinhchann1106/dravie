@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "IELTS", href: "#" },
     { label: "TOEIC", href: "#" },
     { label: "HSK", href: "#" },
-    { label: "PrepTalk English", href: "#" },
+    { label: "JLPT English", href: "#" },
     { label: "Academic English for Teens", href: "#" },
   ];
 

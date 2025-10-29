@@ -3,6 +3,7 @@ import CourseCarousel from "@/components/CourseCarousel";
 import Banner from "@/components/Homepage/Banner";
 import FeatureCourses from "@/components/Homepage/FeatureCourses";
 import FeaturedStudent from "@/components/Homepage/FeaturedStudent";
+import AchievementsSection from "@/components/Homepage/ListLeaner/AchievementsSection";
 import RecommendPrograms from "@/components/Homepage/RecommendPrograms";
 import IeltsCard from "@/components/IeltsCard";
 import Navbar from "@/components/Navbar";
@@ -96,6 +97,7 @@ export default function Home() {
           <FeatureCourses />
           <FeaturedStudent />
           <RecommendPrograms />
+          <AchievementsSection />
           <div className="p-6">
             <CourseCarousel courses={courses} />
           </div>
