@@ -1,65 +1,118 @@
-import Image from "next/image";
+"use client";
+import CourseCarousel from "@/components/CourseCarousel";
+import Banner from "@/components/Homepage/Banner";
+import FeatureCourses from "@/components/Homepage/FeatureCourses";
+import FeaturedStudent from "@/components/Homepage/FeaturedStudent";
+import RecommendPrograms from "@/components/Homepage/RecommendPrograms";
+import IeltsCard from "@/components/IeltsCard";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
+  const courses = [
+    {
+      id: 1,
+      title: "TOEIC L&R LISTENING & READING",
+      subtitle:
+        "[Complete TOEIC] Chiến lược làm bài - Từ vựng - Ngữ pháp - Luyện nghe với Dictation [Tặng khoá TED Talks]",
+      image: "/courses/toeic.jpg",
+      rating: 4.5,
+      students: 36603,
+      tag: "Phần mềm online",
+      price: 989000,
+      oldPrice: 1800000,
+      discount: 45,
+    },
+    {
+      id: 2,
+      title: "IELTS FUNDAMENTALS",
+      subtitle: "[IELTS Fundamentals] Từ vựng và ngữ pháp cơ bản IELTS",
+      image: "/courses/ielts-fundamentals.jpg",
+      rating: 4.2,
+      students: 16335,
+      tag: "Phần mềm online",
+      price: 699000,
+      oldPrice: 899000,
+      discount: 22,
+    },
+    {
+      id: 3,
+      title: "IELTS INTENSIVE LISTENING",
+      subtitle:
+        "[IELTS Intensive Listening] Chiến lược làm bài - Chữa đề - Luyện nghe theo phương pháp Dictation",
+      image: "/courses/ielts-intensive.jpg",
+      rating: 4.4,
+      students: 30506,
+      tag: "Phần mềm online",
+      price: 699000,
+      oldPrice: 899000,
+      discount: 22,
+    },
+    {
+      id: 4,
+      title: "IELTS INTENSIVE LISTENING",
+      subtitle:
+        "[IELTS Intensive Listening] Chiến lược làm bài - Chữa đề - Luyện nghe theo phương pháp Dictation",
+      image: "/courses/ielts-intensive.jpg",
+      rating: 4.4,
+      students: 30506,
+      tag: "Phần mềm online",
+      price: 699000,
+      oldPrice: 899000,
+      discount: 22,
+    },
+    {
+      id: 5,
+      title: "IELTS INTENSIVE LISTENING",
+      subtitle:
+        "[IELTS Intensive Listening] Chiến lược làm bài - Chữa đề - Luyện nghe theo phương pháp Dictation",
+      image: "/courses/ielts-intensive.jpg",
+      rating: 4.4,
+      students: 30506,
+      tag: "Phần mềm online",
+      price: 699000,
+      oldPrice: 899000,
+      discount: 22,
+    },
+    {
+      id: 6,
+      title: "IELTS INTENSIVE LISTENING",
+      subtitle:
+        "[IELTS Intensive Listening] Chiến lược làm bài - Chữa đề - Luyện nghe theo phương pháp Dictation",
+      image: "/courses/ielts-intensive.jpg",
+      rating: 4.4,
+      students: 30506,
+      tag: "Phần mềm online",
+      price: 699000,
+      oldPrice: 899000,
+      discount: 22,
+    },
+  ];
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      <Navbar />
+      <main>
+        <Banner />
+        <div className="bg-[#F7FAFC]">
+          <FeatureCourses />
+          <FeaturedStudent />
+          <RecommendPrograms />
+          <div className="p-6">
+            <CourseCarousel courses={courses} />
+          </div>
+          <div className="p-8">
+            <IeltsCard
+              title="IELTS Simulation Listening test 3"
+              duration="40 phút"
+              participants={352095}
+              comments={572}
+              sections={4}
+              questions={40}
+              tags={["IELTS Academic", "Listening"]}
+              onDetail={() => alert("Xem chi tiết")}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }
