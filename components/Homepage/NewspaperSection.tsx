@@ -76,7 +76,7 @@ export default function NewspaperSection() {
                   height={60}
                   className="object-contain w-auto"
                 />
-                <p className="text-sm font-semibold text-accent-foreground">
+                <p className="text-sm text-balance px-8 font-semibold text-accent-foreground">
                   {p.desc}
                 </p>
               </CardContent>

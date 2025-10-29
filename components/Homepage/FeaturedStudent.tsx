@@ -38,12 +38,12 @@ export default function FeaturedStudent() {
 
   return (
     <div className="w-full max-w-3xl mx-auto mt-10 text-center">
-      <h2 className="text-3xl font-extrabold text-secondary-foreground">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-secondary-foreground mb-4 leading-tight">
         Chất lượng được minh chứng bởi
       </h2>
-      <h3 className="text-3xl font-extrabold text-accent mb-6">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-accent mb-4 leading-tight">
         Hàng nghìn gương mặt xuất sắc
-      </h3>
+      </h2>
 
       {/* Tabs */}
       <div className="flex justify-center">

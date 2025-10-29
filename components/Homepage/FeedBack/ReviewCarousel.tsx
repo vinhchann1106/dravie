@@ -73,7 +73,7 @@ function AutoScrollColumn({
   direction: "up" | "down";
   reviews: ReviewItem[];
 }) {
-  const duration = 240;
+  const duration = 300;
   const scrollVariants: any = {
     animate: {
       y: direction === "up" ? ["0%", "-100%"] : ["-100%", "0%"],

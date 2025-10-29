@@ -789,14 +789,14 @@ export default function AchievementsSection() {
     },
   ];
   return (
-    <section className="max-w-6xl mx-auto py-12">
+    <section className="max-w-6xl mx-auto py-12 mt-12">
       <div className="text-center text-balance">
         <h2 className="text-3xl font-extrabold text-secondary-foreground">
           <span className="text-accent text-4xl">100.000+</span> Học viên
         </h2>
-        <h3 className="text-3xl font-semibold text-[#334155] mb-6">
-          đạt thành tích cao sau khi học tại DraVie
-        </h3>
+        <p className="text-[#334155] text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+          đạt <strong>thành tích cao</strong> sau khi học tại DraVie
+        </p>
       </div>
       <StudentShowcaseCarousel learners={learners} />
     </section>

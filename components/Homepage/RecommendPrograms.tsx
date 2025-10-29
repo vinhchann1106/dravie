@@ -35,21 +35,20 @@ const programs = [
 
 export default function RecommendPrograms() {
   return (
-    <div className="container mx-auto mt-20 px-6">
-      <section className="relative bg-linear-to-b from-accent-foreground to-primary rounded-[40px] text-white py-16 px-6 text-center overflow-hidden">
-        {/* Bee Image */}
-        <div className="absolute -top-10 right-1/2 translate-x-1/2 md:right-20 md:translate-x-0">
-          <Image
-            src={BeeSpeaking}
-            alt="Bee mascot"
-            width={120}
-            height={120}
-            className="drop-shadow-xl"
-          />
-        </div>
-
+    <div className="container mx-auto mt-20 px-6 relative">
+      {/* Bee Image */}
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 z-10">
+        <Image
+          src={BeeSpeaking}
+          alt="Bee mascot"
+          width={180}
+          height={180}
+          className="w-[139px] md:w-[174px]"
+        />
+      </div>
+      <section className=" min-h-[445px] bg-linear-to-b from-accent-foreground/90 to-primary rounded-[40px] text-white py-16 px-6 text-center overflow-hidden">
         {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-extrabold leading-snug mt-16">
+        <h2 className="text-2xl md:text-4xl font-extrabold leading-snug mt-16">
           Những chương trình học <br />
           có thể phù hợp với bạn
         </h2>
