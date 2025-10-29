@@ -2,25 +2,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
-type Student = {
-  name: string;
-  image: string;
-  quote: string;
-  scores:
-    | {
-        overall: string;
-        listening: string;
-        reading: string;
-      }
-    | {
-        overall: string;
-        listening: string;
-        reading: string;
-        speaking: string;
-        writing: string;
-      };
-};
-const students: Record<"TOEIC" | "IELTS", Student> = {
+
+const students = {
   TOEIC: {
     name: "Bảo Trân",
     image:
@@ -122,10 +105,10 @@ export default function FeaturedStudent() {
                     <b>{s.scores.reading}</b> Reading
                   </span>
                   <span>
-                    <b>{s.scores.speaking}</b> Speaking
+                    <b>{(s.scores as any).speaking}</b> Speaking
                   </span>
                   <span>
-                    <b>{s.scores.writing}</b> Writing
+                    <b>{(s.scores as any).writing}</b> Writing
                   </span>
                 </div>
               ) : (
