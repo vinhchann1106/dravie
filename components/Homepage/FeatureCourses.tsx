@@ -44,7 +44,10 @@ const courses = [
 
 export default function FeatureCourses() {
   return (
-    <section className="bg-[#F6F9FF] py-24 px-4 md:px-12 text-center">
+    <section
+      id="feature-courses"
+      className="bg-[#F6F9FF] py-24 px-4 md:px-12 text-center"
+    >
       <div className="max-w-8xl mx-auto">
         <SectionTitle
           title="Tinh thông mọi ngôn ngữ với bộ chương trình đào tạo chất lượng cao"

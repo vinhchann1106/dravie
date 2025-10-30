@@ -46,7 +46,13 @@ export default function Banner() {
       >
         <Button
           size="lg"
-          className="rounded-full px-8 py-6 text-lg font-semibold shadow-lg bg-[#3E7A3E] hover:bg-[#264626] text-[#F4F9CF]"
+          className="cursor-pointer rounded-full px-8 py-6 text-lg font-semibold shadow-lg bg-[#3E7A3E] hover:bg-[#264626] text-[#F4F9CF]"
+          onClick={() => {
+            const section = document.querySelector("#feature-courses");
+            if (section) {
+              section.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           Khám phá ngay
         </Button>
