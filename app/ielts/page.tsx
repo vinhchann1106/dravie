@@ -1,5 +1,4 @@
 import IELTSBanner from "./_components/IELTSBanner";
-import { Course } from "@/types/course";
 import { ieltsCourses } from "@/mock/course/ieltsCourses";
 import CourseCarousel from "@/components/CourseCarousel";
 import SectionTitle from "@/components/common/SectionTitle";

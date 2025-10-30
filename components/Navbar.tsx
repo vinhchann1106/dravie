@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./common/Logo";
@@ -12,7 +12,7 @@ export default function Navbar() {
   const courseItems = [
     { label: "IELTS", href: "/ielts" },
     { label: "TOEIC", href: "/toeic" },
-    { label: "HSK", href: "#" },
+    { label: "HSK", href: "/hsk" },
     { label: "JLPT English", href: "#" },
     { label: "Academic English for Teens", href: "#" },
   ];
@@ -25,6 +25,11 @@ export default function Navbar() {
     { label: "Blog", href: "#" },
     { label: "Tin tức", href: "#" },
   ];
+
+  const handleLinkClick = () => {
+    setOpen(false);
+    setOpenCourse(false);
+  };
 
   return (
     <nav
@@ -70,6 +75,7 @@ export default function Navbar() {
                       <Link
                         key={c.label}
                         href={c.href}
+                        onClick={handleLinkClick}
                         className="block px-4 py-2 hover:text-primary hover:ml-2 transition-all"
                       >
                         {c.label}
@@ -82,6 +88,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={handleLinkClick}
                 className={`transition text-gray-700 hover:text-blue-600`}
               >
                 {item.label}
@@ -128,6 +135,7 @@ export default function Navbar() {
                       <Link
                         key={c.label}
                         href={c.href}
+                        onClick={handleLinkClick}
                         className="py-1 text-gray-600 hover:text-blue-600 transition"
                       >
                         {c.label}
@@ -140,13 +148,17 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={handleLinkClick}
                 className="py-1 text-gray-700 hover:text-blue-600 transition"
               >
                 {item.label}
               </Link>
             )
           )}
-          <button className="mt-2 py-2 w-10/12 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition">
+          <button
+            onClick={handleLinkClick}
+            className="mt-2 py-2 w-10/12 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition"
+          >
             Đăng nhập
           </button>
         </div>
