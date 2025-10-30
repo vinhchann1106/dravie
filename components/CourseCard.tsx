@@ -17,21 +17,35 @@ import {
 } from "lucide-react";
 import { Course } from "@/types/course";
 
-type Props = {
+export default function CourseCard({
+  course,
+  color = "#2563eb",
+}: {
   course: Course;
-};
-
-export default function CourseCard({ course }: Props) {
+  color?: string;
+}) {
   return (
-    <Card className="flex flex-col h-full border border-blue-200 shadow-md hover:shadow-lg transition-all rounded-2xl bg-gradient-to-br from-blue-50 to-white">
+    <Card
+      className="flex flex-col h-full border shadow-md hover:shadow-lg transition-all rounded-2xl"
+      style={{
+        borderColor: color + "33", // nhạt bớt (20% opacity)
+        background: `linear-gradient(to bottom right, ${color}10, #fff)`,
+      }}
+    >
       {/* Header */}
       <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle className="text-xl font-semibold text-blue-700">
+          <CardTitle className="text-xl font-semibold" style={{ color }}>
             {course.title}
           </CardTitle>
           {course.discountPercent && (
-            <Badge variant="secondary" className="bg-blue-600 text-white">
+            <Badge
+              variant="secondary"
+              style={{
+                backgroundColor: color,
+                color: "#fff",
+              }}
+            >
               -{course.discountPercent}%
             </Badge>
           )}
@@ -43,7 +57,7 @@ export default function CourseCard({ course }: Props) {
 
       {/* Content */}
       <CardContent className="flex-1 space-y-3">
-        <div className="text-2xl font-bold text-blue-700">
+        <div className="text-2xl font-bold" style={{ color }}>
           {course.price.toLocaleString()}đ
           {course.oldPrice && (
             <span className="text-sm line-through text-gray-400 ml-2">
@@ -56,31 +70,31 @@ export default function CourseCard({ course }: Props) {
         <ul className="space-y-1 text-gray-700 text-sm">
           {course.students && (
             <li className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-blue-600" />
+              <Users className="w-4 h-4" style={{ color }} />
               {course.students.toLocaleString()} học viên đã đăng ký
             </li>
           )}
           {course.hours && (
             <li className="flex items-center gap-2">
-              <PlayCircle className="w-4 h-4 text-blue-600" />
+              <PlayCircle className="w-4 h-4" style={{ color }} />
               {course.hours} giờ bài học
             </li>
           )}
           {(course.topics || course.lessons) && (
             <li className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-blue-600" />
+              <BookOpen className="w-4 h-4" style={{ color }} />
               {course.topics} chủ đề, {course.lessons} bài học
             </li>
           )}
           {course.exercises && (
             <li className="flex items-center gap-2">
-              <PencilLine className="w-4 h-4 text-blue-600" />
+              <PencilLine className="w-4 h-4" style={{ color }} />
               {course.exercises} bài tập thực hành
             </li>
           )}
           {course.duration && (
             <li className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-blue-600" />
+              <Clock className="w-4 h-4" style={{ color }} />
               Khóa học có giá trị trong {course.duration}.
             </li>
           )}
@@ -94,7 +108,10 @@ export default function CourseCard({ course }: Props) {
                 key={i}
                 className="flex items-center gap-2 text-sm text-gray-700 leading-relaxed"
               >
-                <Check className="min-w-4 min-h-4 w-4 h-4 text-green-600 shrink-0" />
+                <Check
+                  className="min-w-4 min-h-4 w-4 h-4 shrink-0"
+                  style={{ color: "#16a34a" }}
+                />
                 <span className="flex-1">{desc}</span>
               </li>
             ))}
@@ -104,7 +121,13 @@ export default function CourseCard({ course }: Props) {
 
       {/* Footer */}
       <CardFooter className="mt-auto">
-        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+        <Button
+          className="w-full text-white hover:-translate-y-1 hover:drop-shadow-xl ease-out duration-300 cursor-pointer"
+          style={{
+            backgroundColor: color,
+            boxShadow: `0 2px 6px ${color}55`,
+          }}
+        >
           Đăng ký học ngay
         </Button>
       </CardFooter>

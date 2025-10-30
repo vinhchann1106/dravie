@@ -8,15 +8,22 @@ export default function SectionTitle({
   description,
   align = "center",
   animation = "slide",
+  color,
 }: {
   title: string;
   description?: string;
-  align?: string;
+  align?: "center" | "left" | "right";
   animation?: AnimationType;
+  color?: string; // <--- Thêm prop này
 }) {
-  const isCenter = align === "center" ? "text-center" : "text-left";
+  const isCenter =
+    align === "center"
+      ? "text-center"
+      : align === "right"
+      ? "text-right"
+      : "text-left";
 
-  // Container cho toàn bộ câu
+  // Container animation
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -28,7 +35,7 @@ export default function SectionTitle({
     }),
   };
 
-  // Các kiểu animation cho từng từ
+  // Animation từng từ
   const animations: Record<AnimationType, any> = {
     slide: {
       hidden: { opacity: 0, y: 25 },
@@ -61,21 +68,34 @@ export default function SectionTitle({
   };
 
   const word = animations[animation];
-
-  // Chia theo từ, giữ nguyên khoảng trắng thật
   const words = title.split(/(\s+)/).filter((w) => w.length > 0);
+
+  // Style cho màu tiêu đề
+  const titleStyle = color
+    ? {
+        color:
+          color.startsWith("#") || color.startsWith("rgb") ? color : undefined,
+      }
+    : undefined;
+
+  // Nếu là class Tailwind như "text-blue-600"
+  const titleColorClass =
+    color && !(color.startsWith("#") || color.startsWith("rgb"))
+      ? color
+      : "text-secondary-foreground";
 
   return (
     <div className="container mx-auto">
       <div className="max-w-screen-3xl 3xl:px-[252px] md:px-3 lg:px-12 2xl:px-[112px]">
         <div className={`relative w-full ${isCenter} mb-8`}>
-          {/* Hiệu ứng từng từ */}
+          {/* Tiêu đề từng chữ */}
           <motion.h2
             variants={container}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
-            className="text-4xl md:text-5xl font-extrabold text-secondary-foreground mb-4 leading-tight"
+            className={`text-4xl md:text-5xl font-extrabold mb-4 leading-tight ${titleColorClass}`}
+            style={titleStyle}
           >
             {words.map((wordText, index) =>
               wordText.trim() === "" ? (

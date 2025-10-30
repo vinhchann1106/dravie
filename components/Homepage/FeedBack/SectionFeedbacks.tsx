@@ -279,11 +279,9 @@ export default function SectionFeedbacks() {
       <ReviewCarousel
         smallTitle="Phản hồi"
         title="Được đánh giá cao bởi hàng trăm nghìn học viên đã và đang theo học"
-        description="Đây chính là sự ghi nhận lớn nhất với DraVie để DraVie có động lực cải tiến không ngừng nghỉ và đem đến trải nghiệm học tập tuyệt vời nhất dành cho bạn.
-"
+        description="Đây chính là sự ghi nhận lớn nhất với DraVie để DraVie có động lực cải tiến không ngừng nghỉ và đem đến trải nghiệm học tập tuyệt vời nhất dành cho bạn."
         reviews={mockReviews}
       />
-      ;
     </div>
   );
 }

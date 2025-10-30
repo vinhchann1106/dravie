@@ -13,11 +13,13 @@ import CourseCard from "./CourseCard";
 import type { CarouselApi } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-interface CourseCarouselProps {
+export default function CourseCarousel({
+  courses,
+  hexColor,
+}: {
   courses: Course[];
-}
-
-export default function CourseCarousel({ courses }: CourseCarouselProps) {
+  hexColor: string;
+}) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -44,14 +46,13 @@ export default function CourseCarousel({ courses }: CourseCarouselProps) {
           className="w-full"
         >
           <CarouselContent className="-ml-2">
-            {" "}
             {/* ✅ offset padding px-2 trong item */}
             {courses.map((course) => (
               <CarouselItem
                 key={course.id}
                 className="md:basis-1/3 sm:basis-1/2 basis-full pl-2"
               >
-                <CourseCard course={course} />
+                <CourseCard course={course} color={hexColor} />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -62,18 +63,37 @@ export default function CourseCarousel({ courses }: CourseCarouselProps) {
 
           {/* Indicator */}
           <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: count }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  current === index
-                    ? "w-6 bg-blue-600"
-                    : "w-2 bg-blue-300 hover:bg-blue-400"
-                )}
-              />
-            ))}
+            {Array.from({ length: count }).map((_, index) => {
+              const isActive = current === index;
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => api?.scrollTo(index)}
+                  style={{
+                    width: isActive ? "1.5rem" : "0.5rem", // 6 hoặc 2
+                    height: "0.5rem",
+                    borderRadius: "9999px",
+                    backgroundColor: isActive ? hexColor : `${hexColor}55`, // màu nhạt hơn khi chưa active
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      (
+                        e.currentTarget as HTMLElement
+                      ).style.backgroundColor = `${hexColor}88`;
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      (
+                        e.currentTarget as HTMLElement
+                      ).style.backgroundColor = `${hexColor}55`;
+                    }
+                  }}
+                />
+              );
+            })}
           </div>
         </Carousel>
       </div>

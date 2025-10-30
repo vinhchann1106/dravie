@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const courseItems = [
     { label: "IELTS", href: "/ielts" },
-    { label: "TOEIC", href: "#" },
+    { label: "TOEIC", href: "/toeic" },
     { label: "HSK", href: "#" },
     { label: "JLPT English", href: "#" },
     { label: "Academic English for Teens", href: "#" },
