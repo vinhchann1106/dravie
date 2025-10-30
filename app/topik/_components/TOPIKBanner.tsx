@@ -17,18 +17,18 @@ export default function TOPIKBanner() {
           transition={{ duration: 0.6 }}
           className="max-w-xl z-10"
         >
-          <div className="text-sm font-semibold bg-[#C3E7C7] text-[#E62727] uppercase w-fit px-4 py-1 rounded-full rounded-bl-none mb-4">
-            Học Tiếng Trung Online
+          <div className="text-sm font-semibold bg-[#fac1c1] text-[#E62727] uppercase w-fit px-4 py-1 rounded-full rounded-bl-none mb-4">
+            Học Tiếng Hàn Online
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-[#E62727]">
-            Học Tiếng Trung & <br />
+            Học Tiếng Hàn & <br />
             Luyện Thi HSK
             <span className="text-[#861919]"> Dễ Dàng</span>
           </h1>
 
           <p className="text-[#E62727] font-normal mb-6 text-lg">
-            Học tiếng Trung từ số 0 - DraVie đồng hành rèn khẩu ngữ
+            Học tiếng Hàn từ số 0 - DraVie đồng hành rèn khẩu ngữ
           </p>
 
           <Button
