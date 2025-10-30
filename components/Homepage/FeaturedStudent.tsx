@@ -38,7 +38,7 @@ export default function FeaturedStudent() {
 
   return (
     <div className="w-full max-w-3xl mx-auto mt-10 text-center">
-      <h2 className="text-2xl md:text-3xl font-extrabold text-secondary-foreground mb-4 leading-tight">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-secondary-foreground mb-2 leading-tight">
         Chất lượng được minh chứng bởi
       </h2>
       <h2 className="text-2xl md:text-3xl font-extrabold text-accent mb-4 leading-tight">

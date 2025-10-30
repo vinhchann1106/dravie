@@ -8,9 +8,9 @@ import AchievementsSection from "@/components/Homepage/ListLeaner/AchievementsSe
 import NewspaperSection from "@/components/Homepage/NewspaperSection";
 import PartnerSection from "@/components/Homepage/PartnerSection";
 import RecommendPrograms from "@/components/Homepage/RecommendPrograms";
+import StickyStepsSection from "@/components/Homepage/StickyStepsSection";
 import IeltsCard from "@/components/IeltsCard";
 import Navbar from "@/components/Navbar";
-import { hskCourses } from "@/mock/course/hskCourses";
 
 export default function Home() {
   const courses = [
@@ -99,13 +99,14 @@ export default function Home() {
         <Banner />
         <div className="bg-[#F7FAFC]">
           <FeatureCourses />
+          <StickyStepsSection />
           <FeaturedStudent />
           <AchievementsSection />
           <SectionFeedbacks />
           <PartnerSection />
           <RecommendPrograms />
           <NewspaperSection />
-          <div className="p-6">
+          {/* <div className="p-6">
             <CourseCarousel courses={courses} />
           </div>
           <div className="p-8">
@@ -119,7 +120,7 @@ export default function Home() {
               tags={["IELTS Academic", "Listening"]}
               onDetail={() => alert("Xem chi tiết")}
             />
-          </div>
+          </div> */}
         </div>
       </main>
     </>

@@ -3,6 +3,7 @@
 import AutoScrollRow from "@/components/common/AutoScrollRow";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import SectionTitle from "../common/SectionTitle";
 
 const partners = [
   {
@@ -59,9 +60,7 @@ export default function NewspaperSection() {
   return (
     <section className="w-full py-16 text-center overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-secondary-foreground mb-4 leading-tight">
-          Được báo chí 'gọi tên' với hàng trăm ưu điểm nổi bật
-        </h2>
+        <SectionTitle title="Được báo chí 'gọi tên' với hàng trăm ưu điểm nổi bật" />
         <AutoScrollRow speed={1} className="py-2">
           {partners.map((p) => (
             <Card

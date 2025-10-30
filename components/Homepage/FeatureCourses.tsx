@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import SectionTitle from "../common/SectionTitle";
 
 const courses = [
   {
@@ -45,41 +46,44 @@ export default function FeatureCourses() {
   return (
     <section className="bg-[#F6F9FF] py-24 px-4 md:px-12 text-center">
       <div className="max-w-8xl mx-auto">
-        {/* --- HEADER --- */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-secondary-foreground mb-4 leading-tight">
-          Tinh thông mọi ngôn ngữ <br />
-          <span className="text-secondary-foreground">
-            với bộ chương trình đào tạo chất lượng cao
-          </span>
-        </h2>
-        <p className="text-[#334155] text-lg md:text-xl mb-16 max-w-3xl mx-auto">
-          Học ngoại ngữ thật dễ dàng với lộ trình Học &amp; Luyện Thi toàn diện,
-          được cá nhân hóa riêng biệt.
-        </p>
-
+        <SectionTitle
+          title="Tinh thông mọi ngôn ngữ với bộ chương trình đào tạo chất lượng cao"
+          description="Học ngoại ngữ thật dễ dàng với lộ trình Học &amp; Luyện Thi toàn diện,
+          được cá nhân hóa riêng biệt."
+          animation="fade"
+        />
         {/* --- COURSE GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
           {courses.map((course, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className={`group relative rounded-[32px] bg-gradient-to-br ${course.color} text-white p-8 flex flex-col justify-between shadow-lg overflow-hidden`}
+              className={`group relative rounded-[24px] sm:rounded-[28px] lg:rounded-[32px] 
+        bg-gradient-to-br ${course.color} text-white 
+        p-5 sm:p-6 md:p-7 lg:p-8 
+        flex flex-col justify-between 
+        shadow-lg overflow-hidden`}
             >
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold">{course.title}</h3>
-                <p className="text-sm leading-relaxed">{course.description}</p>
+              {/* --- Nội dung --- */}
+              <div className="space-y-2 sm:space-y-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-snug">
+                  {course.title}
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed line-clamp-3">
+                  {course.description}
+                </p>
               </div>
 
               {/* --- BOTTOM BUTTON / ICON --- */}
-              <div className="mt-8 flex justify-end items-center relative h-10">
+              <div className="mt-6 sm:mt-8 flex justify-end items-center relative h-10">
                 {/* Icon khi chưa hover */}
                 <Link
                   href={course.link}
                   className="absolute inset-0 flex items-center justify-end transition-opacity duration-300 group-hover:opacity-0"
                 >
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full border border-white/40 hover:bg-white/20 transition-all">
-                    <ArrowUpRight className="w-5 h-5" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-white/40 hover:bg-white/20 transition-all">
+                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </Link>
 
@@ -88,8 +92,14 @@ export default function FeatureCourses() {
                   href={course.link}
                   className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
                 >
-                  <div className="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md px-5 py-2.5 rounded-full flex items-center gap-2 text-sm font-semibold">
-                    Khám phá khóa học <ArrowUpRight className="w-4 h-4" />
+                  <div
+                    className="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md 
+            px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full 
+            flex items-center gap-1.5 sm:gap-2 
+            text-xs sm:text-sm font-semibold"
+                  >
+                    Khám phá{" "}
+                    <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </Link>
               </div>
