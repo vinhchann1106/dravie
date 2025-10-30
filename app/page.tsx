@@ -9,7 +9,7 @@ import NewspaperSection from "@/components/Homepage/NewspaperSection";
 import PartnerSection from "@/components/Homepage/PartnerSection";
 import RecommendPrograms from "@/components/Homepage/RecommendPrograms";
 import StickyStepsSection from "@/components/Homepage/StickyStepsSection";
-import IeltsCard from "@/components/IeltsCard";
+import IeltsCard from "@/components/CourseCard";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
@@ -94,10 +94,9 @@ export default function Home() {
   ];
   return (
     <>
-      <Navbar />
       <main>
         <Banner />
-        <div className="bg-[#F7FAFC]">
+        <div className="">
           <FeatureCourses />
           <StickyStepsSection />
           <FeaturedStudent />

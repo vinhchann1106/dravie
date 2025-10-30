@@ -10,7 +10,7 @@ export default function Navbar() {
   const [openCourse, setOpenCourse] = useState(false);
 
   const courseItems = [
-    { label: "IELTS", href: "#" },
+    { label: "IELTS", href: "/ielts" },
     { label: "TOEIC", href: "#" },
     { label: "HSK", href: "#" },
     { label: "JLPT English", href: "#" },

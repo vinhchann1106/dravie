@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#C3DC7A] to-[#F4F9CF] py-32 flex flex-col items-center text-center">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#C3DC7A] to-[#F4F9CF] py-24 flex flex-col items-center text-center">
       {/* Hiệu ứng tròn lan tỏa */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,transparent_70%)]" />
 

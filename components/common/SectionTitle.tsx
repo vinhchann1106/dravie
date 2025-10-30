@@ -68,7 +68,7 @@ export default function SectionTitle({
   return (
     <div className="container mx-auto">
       <div className="max-w-screen-3xl 3xl:px-[252px] md:px-3 lg:px-12 2xl:px-[112px]">
-        <div className={`relative w-full ${isCenter} mb-16 overflow-hidden`}>
+        <div className={`relative w-full ${isCenter} mb-8`}>
           {/* Hiệu ứng từng từ */}
           <motion.h2
             variants={container}
