@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function TOEICBanner() {
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-8">
       <section className="flex flex-col md:flex-row items-center justify-between bg-[#0A2A66] rounded-3xl px-8 md:px-16 py-16 overflow-hidden relative text-white">
         {/* Left Content */}
         <motion.div

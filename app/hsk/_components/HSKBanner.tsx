@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HSKBanner() {
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-8">
       <section className="flex flex-col md:flex-row items-center justify-between bg-[#E6F5E8] rounded-3xl px-8 md:px-16 py-16 overflow-hidden relative text-white">
         {/* Left Content */}
         <motion.div
@@ -33,7 +33,7 @@ export default function HSKBanner() {
 
           <Button
             size="lg"
-            className="flex items-center gap-2 bg-[#174EA6] hover:bg-[#1E63D0] text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
+            className="flex items-center gap-2 bg-primary hover:bg-secondary-foreground text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
             onClick={() => {
               const section = document.querySelector("#courses");
               if (section) section.scrollIntoView({ behavior: "smooth" });

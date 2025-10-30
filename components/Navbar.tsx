@@ -13,8 +13,8 @@ export default function Navbar() {
     { label: "IELTS", href: "/ielts" },
     { label: "TOEIC", href: "/toeic" },
     { label: "HSK", href: "/hsk" },
-    { label: "JLPT English", href: "#" },
-    { label: "Academic English for Teens", href: "#" },
+    { label: "JLPT", href: "/jlpt" },
+    { label: "TOPIK", href: "/topik" },
   ];
 
   const menuItems = [
