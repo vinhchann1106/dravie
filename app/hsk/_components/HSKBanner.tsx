@@ -23,7 +23,7 @@ export default function HSKBanner() {
 
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-primary/80">
             Học Tiếng Trung & Luyện Thi HSK
-            <span className="text-secondary-foreground">Dễ Dàng</span>
+            <span className="text-secondary-foreground"> Dễ Dàng</span>
           </h1>
 
           <p className="text-accent font-normal mb-6 text-lg">
