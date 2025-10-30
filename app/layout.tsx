@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "DraVie",
   description: "DraVie Học một ngôn ngữ - Mở một tầm nhìn",
+  icons: {
+    icon: "/favicon.ico", // hoặc .ico nếu bạn dùng ico
+  },
 };
 
 export default function RootLayout({
