@@ -31,7 +31,7 @@ export const hskFeedback = [
     name: "Kim Hồng",
     bodyContent:
       '<p><span style="font-family: Lexend,Arial;">C&aacute;c video b&agrave;i giảng chi tiết, dễ hiểu. Nội dung b&agrave;i giảng trong kh&oacute;a học HSK cuốn lắm ạ, l&uacute;c đầu học em sợ sẽ buồn ngủ do học qua video n&ecirc;n dễ bị ph&acirc;n t&acirc;m. Tuy nhi&ecirc;n, c&aacute;ch giảng dạy của thầy c&ocirc; cuốn lắm kh&ocirc;ng dứt ra được lu&ocirc;n ạ.&nbsp;</span></p>',
-    likeCount: null,
+    likeCount: 10,
     avatar:
       "https://cms-static-assets.prepcdn.com/uploads/Kim_Hong_41aeb91dc8.png",
   },
