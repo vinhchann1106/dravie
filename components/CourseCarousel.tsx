@@ -22,7 +22,7 @@ export default function CourseCarousel({ courses }: CourseCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
+  useEffect((): any => {
     if (!api) return;
 
     const onSelect = () => setCurrent(api.selectedScrollSnap());
