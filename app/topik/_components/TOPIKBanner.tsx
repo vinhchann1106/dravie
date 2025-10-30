@@ -23,8 +23,8 @@ export default function TOPIKBanner() {
 
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-[#E62727]">
             Học Tiếng Hàn & <br />
-            Luyện Thi HSK
-            <span className="text-[#861919]"> Dễ Dàng</span>
+            Luyện Thi TOPIK
+            <span className="text-[#861919] text-nowrap"> Dễ Dàng</span>
           </h1>
 
           <p className="text-[#E62727] font-normal mb-6 text-lg">
@@ -72,7 +72,7 @@ export default function TOPIKBanner() {
               <p className="text-sm font-semibold text-[#E62727]">
                 <b>10.000+</b> học viên
               </p>
-              <p className="text-sm text-[#E62727]">Đã học HSK tại DraVie</p>
+              <p className="text-sm text-[#E62727]">Đã học TOPIK tại DraVie</p>
             </div>
           </div>
         </motion.div>
@@ -88,7 +88,7 @@ export default function TOPIKBanner() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]" />
             <Image
               src="/toeicpage/banner_student.webp"
-              alt="Students HSK"
+              alt="Students TOPIK"
               width={400}
               height={400}
               className="relative z-10"
