@@ -11,26 +11,44 @@ import { topikFeedback } from "@/mock/feedback/topikFeedback";
 const teachers = [
   {
     id: "1",
-    name: "TS. Linh Lê",
-    title: "Cố Vấn Học Thuật",
-    bio: "Học giả và cố vấn giáo dục với hơn 20 năm kinh nghiệm trong VET, TESOL và đổi mới chương trình đào tạo. Chị có chuyên môn về xây dựng chính sách, giáo dục người lớn, tích hợp công nghệ số và đảm bảo chất lượng, đồng thời đã dẫn dắt nhiều sáng kiến lớn về tuân thủ, phát triển nhân lực và năng lực số. Với cam kết về thiết kế toàn diện và lấy con người làm trung tâm, chị hỗ trợ các cơ sở giáo dục gắn kết chiến lược, sư phạm và công nghệ, đồng hành cùng DraVie trong việc xây dựng môi trường học tập sẵn sàng cho tương lai.",
-    avatar:
-      "https://vietedra.edu.vn/wp-content/uploads/2025/08/VE-Linh-Le-01-scaled.jpg",
+    name: "Ms. Nguyễn Thanh Hà",
+    title: "Giảng viên IELTS",
+    bio: [
+      "Thạc sĩ Giảng dạy Tiếng Anh – University of Melbourne",
+      "Chứng chỉ IELTS 8.0 Overall (Listening 8.5 – Reading 8.5)",
+      "7 năm kinh nghiệm luyện thi IELTS tại VUS và ILA Vietnam",
+      "3 năm cố vấn kỹ năng Writing cho dự án “Write for Change” của Australian Aid",
+      "Tác giả chuyên mục “IELTS Made Easy” cho tạp chí EdTalks Vietnam",
+      "Phương châm: “Học IELTS không chỉ để thi – mà để viết và nói như người toàn cầu.”",
+    ],
+    avatar: "/teachers/nguyen-thanh-ha.png",
   },
   {
     id: "2",
-    name: "ThS. Lê Thị Thu Hiền",
-    title: "Cố Vấn Học Thuật",
-    bio: "Chuyên gia quản lý tuân thủ với nhiều kinh nghiệm trong lĩnh vực VET và Foundation Studies tại Úc. Am hiểu Khung Chất lượng VET, các quy định giáo dục Úc và yêu cầu hợp đồng tài trợ; thành thạo kiểm toán tuân thủ, thiết kế đào tạo và chuyển đổi số. Với bằng Master of TESOL (The University of Melbourne), kết hợp chuyên môn học thuật và kinh nghiệm thực tiễn, chị mang lại góc nhìn toàn cầu về đảm bảo chất lượng và đào tạo theo năng lực, để hỗ trợ các tổ chức giáo dục đạt tăng trưởng bền vững.",
-    avatar: "https://vietedra.edu.vn/wp-content/uploads/2025/08/VE-AB-01.png",
+    name: "Mr. Daniel",
+    title: "Giảng viên Tiếng Anh",
+    bio: [
+      "Cử nhân Ngôn ngữ học – University of California",
+      "Chứng chỉ giảng dạy quốc tế CELTA – Cambridge",
+      "Hơn 8 năm kinh nghiệm giảng dạy tiếng Anh tại Mỹ, Thái Lan và Việt Nam",
+      "Từng giảng dạy tại VUS, Apollo trước khi gia nhập DraViE",
+      "Phong cách: vui vẻ, chú trọng “âm thanh tự nhiên” và phản xạ trong hội thoại thực tế.",
+    ],
+    avatar: "/teachers/daniel.png",
   },
   {
     id: "3",
-    name: "TS. Lương Thị Phương Nhi",
-    title: "Cố Vấn Học Thuật",
-    bio: "Nhà giáo dục và nghiên cứu giàu kinh nghiệm với hơn 20 năm trong giáo dục đại học và giảng dạy tiếng Anh, hiện là Giảng viên tiếng Anh tại Trường Đại học Ngoại thương, Việt Nam. Chị sở hữu bằng Thạc sĩ TESOL, Thạc sĩ Kinh doanh Quốc tế và Tiến sĩ Giáo dục. Nghiên cứu của chị tập trung vào giáo dục quốc tế, giá trị văn hoá, trách nhiệm xã hội, phát triển bền vững và đổi mới, với nhiều công bố liên quan đến phát triển chuyên môn, ứng dụng công nghệ trong ELT, quản lý du lịch, khách sạn, cũng như lãnh đạo và quản trị.",
-    avatar:
-      "https://vietedra.edu.vn/wp-content/uploads/2025/08/VE-Luong-Nhi-01-01-scaled.jpg",
+    name: "Mr. Benjamin Taylor",
+    title: "Giảng viên IELTS/TOEFL",
+    bio: [
+      "M.A. in Applied Linguistics – University of California, Los Angeles (UCLA)",
+      "Chứng chỉ: TESOL, TOEFL iBT Trainer",
+      "12 năm giảng dạy IELTS/TOEFL tại Mỹ, Nhật và Việt Nam",
+      "Phụ trách hơn 1000 học viên đạt IELTS từ 6.5 lên 8.0+",
+      "Giảng viên khách mời tại chương trình “AI in Language Teaching” – TESOL Asia 2023",
+      "Phong cách: Dạy bằng phương pháp “Active Context” – học qua tình huống đời thực và mô phỏng phỏng vấn quốc tế.",
+    ],
+    avatar: "/teachers/benjamin-taylor.png",
   },
 ];
 

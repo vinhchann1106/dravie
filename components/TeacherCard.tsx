@@ -8,7 +8,8 @@ type Teacher = {
   id: string;
   name: string;
   title: string;
-  bio: string;
+  // hỗ trợ cả string hoặc string[] (nếu string sẽ tự tách theo newline/comma/semicolon)
+  bio: string | string[];
   avatar: string;
 };
 
@@ -18,6 +19,14 @@ type Props = {
 };
 
 export default function TeacherCard({ teacher, index = 0 }: Props) {
+  // chuẩn hoá bio thành mảng dòng
+  const bioItems: string[] = Array.isArray(teacher.bio)
+    ? teacher.bio
+    : teacher.bio
+        .split(/\r?\n|,|;/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, scale: 0.98 }}
@@ -39,7 +48,7 @@ export default function TeacherCard({ teacher, index = 0 }: Props) {
         <CardContent className="flex-1 p-6 flex flex-col items-center text-center space-y-3">
           {/* Avatar */}
           <motion.div
-            className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-blue-100"
+            className="relative w-28 h-28 rounded-full overflow-hidden ring-6 ring-blue-100"
             whileHover={{ rotate: 2 }}
             transition={{ type: "spring", stiffness: 150 }}
           >
@@ -59,10 +68,12 @@ export default function TeacherCard({ teacher, index = 0 }: Props) {
             <p className="text-sm text-blue-600 font-medium">{teacher.title}</p>
           </div>
 
-          {/* Bio */}
-          <p className="text-sm text-gray-600 leading-relaxed text-balance">
-            {teacher.bio}
-          </p>
+          {/* Bio as list */}
+          <ul className="text-sm text-gray-600 leading-relaxed text-left list-disc list-inside space-y-1 w-full max-w-xs">
+            {bioItems.map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
 
           {/* Optional: spacer để căn đều */}
           <div className="flex-1" />

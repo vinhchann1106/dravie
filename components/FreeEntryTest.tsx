@@ -31,6 +31,30 @@ const courses = [
       { id: "toeic-entry", title: "TOEIC Entry test 4 KN", time: "00:30:00" },
     ],
   },
+  {
+    id: "hsk",
+    name: "HSK",
+    tests: [
+      { id: "hsk-full", title: "HSK Full Test 4 Skills", time: "02:00:00" },
+      { id: "hsk-mini", title: "HSK Practice Mini Test", time: "00:45:00" },
+    ],
+  },
+  {
+    id: "jlpt",
+    name: "JLPT",
+    tests: [
+      { id: "jlpt-full", title: "JLPT Full Test 4 Skills", time: "02:00:00" },
+      { id: "jlpt-mini", title: "JLPT Practice Mini Test", time: "00:45:00" },
+    ],
+  },
+  {
+    id: "topik",
+    name: "TOPIK",
+    tests: [
+      { id: "topik-full", title: "TOPIK Full Test 4 Skills", time: "02:00:00" },
+      { id: "topik-mini", title: "TOPIK Practice Mini Test", time: "00:45:00" },
+    ],
+  },
 ];
 
 export default function FreeEntryTest() {
