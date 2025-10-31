@@ -106,21 +106,6 @@ export default function ContactForm() {
             className="w-full bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#0046AF] focus:ring-[#0046AF]"
           />
         </div>
-
-        <div className="col-span-1">
-          <label htmlFor="course-care" className="sr-only">
-            Khóa học bạn quan tâm (*)
-          </label>
-          <NativeSelect id="course-care">
-            <NativeSelectOption value="">
-              Khóa học bạn quan tâm (*)
-            </NativeSelectOption>
-            <NativeSelectOption value="ielts">IELTS</NativeSelectOption>
-            <NativeSelectOption value="toeic">TOEIC</NativeSelectOption>
-            <NativeSelectOption value="jlpt">JLPT</NativeSelectOption>
-            <NativeSelectOption value="topik">TOPIK</NativeSelectOption>
-          </NativeSelect>
-        </div>
         {/* Textarea */}
         <div className="col-span-1 md:col-span-2">
           <label htmlFor="message" className="sr-only">
