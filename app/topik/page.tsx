@@ -36,7 +36,7 @@ const teachers = [
 
 const faqs = [
   {
-    title: "Học tiếng Trung TOPIK theo lộ trình như thế nào?",
+    title: "Học tiếng Hàn TOPIK theo lộ trình như thế nào?",
     content: `1. Có nhất định phải theo lộ trình học DraVie đưa ra không?
 Lộ trình học cùng Study plan chi tiết đến từng ngày là lộ trình học TỐI ƯU NHẤT, HIỆU QUẢ NHẤT giúp bạn chinh phục được đúng mục tiêu đã đề ra. Tuy nhiên, các bạn hoàn toàn có thể chủ động sắp xếp và thay đổi thời gian để có lộ trình học TOPIK và luyện tập phù hợp với kế hoạch riêng.
 

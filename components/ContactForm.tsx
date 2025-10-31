@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { NativeSelect, NativeSelectOption } from "./ui/native-select";
 
 export default function ContactForm() {
   return (
@@ -78,6 +79,19 @@ export default function ContactForm() {
           />
         </div>
 
+        <div className="col-span-1 md:col-span-2">
+          <label htmlFor="phone" className="sr-only">
+            Số điện thoại
+          </label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Nhập số điện thoại của bạn"
+            className="w-full bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#0046AF] focus:ring-[#0046AF]"
+            required
+          />
+        </div>
         <div className="col-span-1">
           <label htmlFor="birthYear" className="sr-only">
             Năm sinh
@@ -94,19 +108,19 @@ export default function ContactForm() {
         </div>
 
         <div className="col-span-1">
-          <label htmlFor="phone" className="sr-only">
-            Số điện thoại
+          <label htmlFor="course-care" className="sr-only">
+            Khóa học bạn quan tâm (*)
           </label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="Nhập số điện thoại của bạn"
-            className="w-full bg-white border-gray-300 text-black placeholder:text-gray-500 focus:border-[#0046AF] focus:ring-[#0046AF]"
-            required
-          />
+          <NativeSelect id="course-care">
+            <NativeSelectOption value="">
+              Khóa học bạn quan tâm (*)
+            </NativeSelectOption>
+            <NativeSelectOption value="ielts">IELTS</NativeSelectOption>
+            <NativeSelectOption value="toeic">TOEIC</NativeSelectOption>
+            <NativeSelectOption value="jlpt">JLPT</NativeSelectOption>
+            <NativeSelectOption value="topik">TOPIK</NativeSelectOption>
+          </NativeSelect>
         </div>
-
         {/* Textarea */}
         <div className="col-span-1 md:col-span-2">
           <label htmlFor="message" className="sr-only">
