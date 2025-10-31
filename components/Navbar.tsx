@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./common/Logo";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
   const menuItems = [
     { label: "Trang chủ", href: "/" },
     { label: "Khóa học", href: "#", isDropdown: true },
-    { label: "Kiểm tra đầu vào", href: "#" },
+    { label: "Kiểm tra đầu vào", href: "/free-entry-test" },
     { label: "Luyện đề", href: "#" },
     { label: "Blog", href: "#" },
     { label: "Tin tức", href: "#" },
@@ -50,7 +51,7 @@ export default function Navbar() {
                 onMouseLeave={() => setOpenCourse(false)}
               >
                 <button
-                  className={`flex items-center gap-1 transition text-gray-700 hover:text-blue-600`}
+                  className={`flex items-center gap-1 transition text-gray-700 hover:text-primary`}
                 >
                   {item.label}
                   <ChevronDown className="w-4 h-4 mt-[1px]" />
@@ -89,16 +90,16 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={handleLinkClick}
-                className={`transition text-gray-700 hover:text-blue-600`}
+                className={`transition text-gray-700 hover:text-primary`}
               >
                 {item.label}
               </Link>
             )
           )}
 
-          <button className="ml-4 px-4 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition">
+          <Button className="ml-4 px-4 py-1.5 text-sm font-medium rounded-full cursor-pointer transition">
             Đăng nhập
-          </button>
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -119,7 +120,7 @@ export default function Navbar() {
               <div key={item.label} className="w-full text-center">
                 <button
                   onClick={() => setOpenCourse(!openCourse)}
-                  className="font-semibold flex justify-center items-center gap-1 text-gray-700 hover:text-blue-600 w-full"
+                  className="font-semibold flex justify-center items-center gap-1 text-gray-700 hover:text-primary w-full"
                 >
                   {item.label}
                   <ChevronDown
@@ -136,7 +137,7 @@ export default function Navbar() {
                         key={c.label}
                         href={c.href}
                         onClick={handleLinkClick}
-                        className="py-1 text-gray-600 hover:text-blue-600 transition"
+                        className="py-1 text-gray-600 hover:text-primary transition"
                       >
                         {c.label}
                       </Link>
@@ -149,18 +150,18 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={handleLinkClick}
-                className="py-1 text-gray-700 hover:text-blue-600 transition"
+                className="py-1 text-gray-700 hover:text-primary transition"
               >
                 {item.label}
               </Link>
             )
           )}
-          <button
+          <Button
             onClick={handleLinkClick}
-            className="mt-2 py-2 w-10/12 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition"
+            className="mt-2 py-2 w-10/12 font-medium rounded-full transition"
           >
             Đăng nhập
-          </button>
+          </Button>
         </div>
       )}
     </nav>

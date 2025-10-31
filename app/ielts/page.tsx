@@ -117,7 +117,7 @@ export default function Page() {
           <SectionTitle
             color="#1447e6"
             title="Chinh phục lộ trình IELTS"
-            description="Lựa chọn khóa học phù hợp svới trình độ và mục tiêu của bạn"
+            description="Lựa chọn khóa học phù hợp với trình độ và mục tiêu của bạn"
           />
           <div className="container px-4 mx-auto mb-8">
             <CourseCarousel courses={ieltsCourses} hexColor="#4975d3" />
