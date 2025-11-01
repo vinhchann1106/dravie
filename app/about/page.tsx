@@ -232,11 +232,7 @@ export default function AboutPage() {
 
       {/* Teachers - grouped by course */}
       <section className="py-16 bg-white container px-4 mx-auto">
-        <SectionTitle
-          title="Đội Ngũ Giảng Viên"
-          align="center"
-          className="mb-12"
-        />
+        <SectionTitle title="Đội Ngũ Giảng Viên" align="center" />
 
         {groupedTeachers.map((group) => (
           <div
