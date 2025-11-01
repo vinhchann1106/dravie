@@ -61,9 +61,9 @@ export default function BlogPage() {
           Blog DraViE
         </h1>
         <p className="text-gray-600 max-w-2xl leading-relaxed text-sm md:text-base">
-          Cập nhật tin tức, chia sẻ bí quyết học ngôn ngữ, và những câu chuyện
-          truyền cảm hứng từ học viên DraViE. Cùng khám phá hành trình học tập
-          thông minh với công nghệ AI!
+          Chào mừng bạn đến với thế giới của DraViE Blog – nơi bạn có thể tìm
+          thấy tất cả bí quyết học ngôn ngữ, những câu chuyện thật từ học viên
+          DraViE, kinh nghiệm và các tin tức nổi bật về nền tảng DraViE.
         </p>
       </div>
 
