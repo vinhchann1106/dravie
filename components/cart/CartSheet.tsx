@@ -76,11 +76,11 @@ export default function CartSheet({
                 className="cursor-pointer rounded-md flex items-start justify-between gap-4 border border-slate-200 bg-white p-3 hover:shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:border-primary transition-all duration-200"
               >
                 {/* Info */}
-                <div className="flex-1 flex flex-col justify-between min-w-0">
-                  <span className="font-medium text-slate-800 leading-snug break-words truncate">
+                <div className="flex-1 flex flex-col justify-between">
+                  <span className="font-medium text-slate-800 leading-snug break-words">
                     {c.title}
                   </span>
-                  <span className="text-[15px] font-semibold text-emerald-600 mt-1">
+                  <span className="text-[15px] font-semibold text-emerald-600 mt-2">
                     {formatPrice(c.price || 0)}
                   </span>
                 </div>
