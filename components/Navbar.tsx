@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ShoppingCart } from "lucide-react";
 import Logo from "./common/Logo";
 import { Button } from "./ui/button";
+import useCart from "@/hooks/useCart";
+import CartSheet from "@/components/cart/CartSheet";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [openCourse, setOpenCourse] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const { cart } = useCart();
 
   const courseItems = [
     { label: "IELTS", href: "/ielts" },
@@ -97,7 +101,22 @@ export default function Navbar() {
             )
           )}
 
-          <Button className="ml-4 px-4 py-1.5 text-sm font-medium rounded-full cursor-pointer transition">
+          {/* Nút giỏ hàng */}
+          <button
+            onClick={() => setOpenCart(true)}
+            className="relative p-2 hover:text-primary transition"
+            aria-label="Mở giỏ hàng"
+          >
+            <ShoppingCart className="w-6 h-6" />
+            {cart.length > 0 && (
+              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs font-bold rounded-full px-1.5 py-0.5">
+                {cart.length}
+              </span>
+            )}
+          </button>
+
+          {/* Nút đăng nhập */}
+          <Button className="ml-2 px-4 py-1.5 text-sm font-medium rounded-full cursor-pointer transition">
             Đăng nhập
           </Button>
         </div>
@@ -156,6 +175,16 @@ export default function Navbar() {
               </Link>
             )
           )}
+
+          {/* Giỏ hàng trên mobile */}
+          <button
+            onClick={() => setOpenCart(true)}
+            className="relative flex items-center gap-2 mt-2 text-gray-700 hover:text-primary transition"
+          >
+            <ShoppingCart className="w-5 h-5" />
+            <span>Giỏ hàng ({cart.length})</span>
+          </button>
+
           <Button
             onClick={handleLinkClick}
             className="mt-2 py-2 w-10/12 font-medium rounded-full transition"
@@ -164,6 +193,9 @@ export default function Navbar() {
           </Button>
         </div>
       )}
+
+      {/* Sheet giỏ hàng */}
+      <CartSheet open={openCart} onOpenChange={setOpenCart} />
     </nav>
   );
 }

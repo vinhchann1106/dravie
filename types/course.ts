@@ -1,6 +1,7 @@
 export interface Course {
   id: string;
   title: string;
+  avatar?: string;
   price: number;
   oldPrice?: number;
   discountPercent?: number;

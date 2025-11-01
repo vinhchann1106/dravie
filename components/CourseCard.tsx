@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardHeader,
@@ -16,6 +18,8 @@ import {
   Users,
 } from "lucide-react";
 import { Course } from "@/types/course";
+import useCart from "@/hooks/useCart";
+import { toast } from "sonner"; // 👈 Dùng sonner mới
 
 export default function CourseCard({
   course,
@@ -24,11 +28,29 @@ export default function CourseCard({
   course: Course;
   color?: string;
 }) {
+  const { cart, handleAdd } = useCart();
+
+  const addCourse = () => {
+    const alreadyInCart = cart.some((c) => c.id === course.id);
+
+    if (alreadyInCart) {
+      toast.warning("Khóa học đã có trong giỏ hàng 🛒", {
+        description: course.title,
+      });
+      return;
+    }
+
+    handleAdd(course);
+    toast.success("Đã thêm vào giỏ hàng!", {
+      description: course.title,
+    });
+  };
+
   return (
     <Card
       className="flex flex-col h-full border shadow-md hover:shadow-lg transition-all rounded-2xl"
       style={{
-        borderColor: color + "33", // nhạt bớt (20% opacity)
+        borderColor: color + "33",
         background: `linear-gradient(to bottom right, ${color}10, #fff)`,
       }}
     >
@@ -122,13 +144,14 @@ export default function CourseCard({
       {/* Footer */}
       <CardFooter className="mt-auto">
         <Button
+          onClick={addCourse}
           className="w-full text-white hover:-translate-y-1 hover:drop-shadow-xl ease-out duration-300 cursor-pointer"
           style={{
             backgroundColor: color,
             boxShadow: `0 2px 6px ${color}55`,
           }}
         >
-          Đăng ký học ngay
+          Thêm vào giỏ
         </Button>
       </CardFooter>
     </Card>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import FloatingContact from "@/components/FloatingContact";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
+        <Toaster richColors position="top-right" />
         <FloatingContact />
       </body>
     </html>
