@@ -1,55 +1,40 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionTitle from "@/components/common/SectionTitle";
 import { Card, CardContent } from "@/components/ui/card";
 import TeacherCard from "@/components/TeacherCard";
+import { ieltsTeachers } from "@/mock/teachers/ieltsTeachers";
+import { toeicTeachers } from "@/mock/teachers/toeicTeachers";
+import { chineseTeachers } from "@/mock/teachers/chineseTeachers";
+import { japaneseTeachers } from "@/mock/teachers/japaneseTeachers";
+import { koreanTeachers } from "@/mock/teachers/koreanTeachers";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
-const teachers = [
-  {
-    id: "1",
-    name: "Ms. Nguyễn Thanh Hà",
-    title: "Giảng viên IELTS",
-    bio: [
-      "Thạc sĩ Giảng dạy Tiếng Anh – University of Melbourne",
-      "Chứng chỉ IELTS 8.0 Overall (Listening 8.5 – Reading 8.5)",
-      "7 năm kinh nghiệm luyện thi IELTS tại VUS và ILA Vietnam",
-      "3 năm cố vấn kỹ năng Writing cho dự án “Write for Change” của Australian Aid",
-      "Tác giả chuyên mục “IELTS Made Easy” cho tạp chí EdTalks Vietnam",
-      "Phương châm: “Học IELTS không chỉ để thi – mà để viết và nói như người toàn cầu.”",
-    ],
-    avatar: "/teachers/nguyen-thanh-ha.png",
-  },
-  {
-    id: "2",
-    name: "Mr. Daniel",
-    title: "Giảng viên Tiếng Anh",
-    bio: [
-      "Cử nhân Ngôn ngữ học – University of California",
-      "Chứng chỉ giảng dạy quốc tế CELTA – Cambridge",
-      "Hơn 8 năm kinh nghiệm giảng dạy tiếng Anh tại Mỹ, Thái Lan và Việt Nam",
-      "Từng giảng dạy tại VUS, Apollo trước khi gia nhập DraViE",
-      "Phong cách: vui vẻ, chú trọng “âm thanh tự nhiên” và phản xạ trong hội thoại thực tế.",
-    ],
-    avatar: "/teachers/daniel.png",
-  },
-  {
-    id: "3",
-    name: "Mr. Benjamin Taylor",
-    title: "Giảng viên IELTS/TOEFL",
-    bio: [
-      "M.A. in Applied Linguistics – University of California, Los Angeles (UCLA)",
-      "Chứng chỉ: TESOL, TOEFL iBT Trainer",
-      "12 năm giảng dạy IELTS/TOEFL tại Mỹ, Nhật và Việt Nam",
-      "Phụ trách hơn 1000 học viên đạt IELTS từ 6.5 lên 8.0+",
-      "Giảng viên khách mời tại chương trình “AI in Language Teaching” – TESOL Asia 2023",
-      "Phong cách: Dạy bằng phương pháp “Active Context” – học qua tình huống đời thực và mô phỏng phỏng vấn quốc tế.",
-    ],
-    avatar: "/teachers/benjamin-taylor.png",
-  },
-];
 export default function AboutPage() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedTeacher, setSelectedTeacher] = useState<any | null>(null);
+
+  // Grouped teachers by course
+  const groupedTeachers = [
+    { id: "ielts", title: "IELTS", teachers: ieltsTeachers },
+    { id: "toeic", title: "TOEIC", teachers: toeicTeachers },
+    { id: "chinese", title: "Tiếng Trung", teachers: chineseTeachers },
+    { id: "japanese", title: "Tiếng Nhật", teachers: japaneseTeachers },
+    { id: "korean", title: "Tiếng Hàn", teachers: koreanTeachers },
+  ];
+
+  // flat list to compute indices for TeacherCard
+  const allTeachersFlat = groupedTeachers.flatMap((g) => g.teachers);
+
   return (
     <div className="overflow-hidden bg-white">
       {/* Hero */}
@@ -245,14 +230,99 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Teachers */}
-      <section className="py-20 bg-white container px-2 mx-auto">
-        <SectionTitle title="Đội Ngũ Giảng Viên" align="center" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {teachers.map((teacher, index) => (
-            <TeacherCard key={teacher.id} teacher={teacher} index={index} />
-          ))}
-        </div>
+      {/* Teachers - grouped by course */}
+      <section className="py-16 bg-white container px-4 mx-auto">
+        <SectionTitle
+          title="Đội Ngũ Giảng Viên"
+          align="center"
+          className="mb-12"
+        />
+
+        {groupedTeachers.map((group) => (
+          <div
+            key={group.id}
+            className="mb-14 border-t border-gray-200 pt-8 first:border-t-0 first:pt-0"
+          >
+            {/* Header mỗi nhóm */}
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6">
+              <h3 className="text-xl font-semibold text-gray-800 tracking-tight mb-2 sm:mb-0">
+                {group.title}
+              </h3>
+              <div className="text-sm text-gray-500">
+                {group.teachers.length} giảng viên
+              </div>
+            </div>
+
+            {/* Nếu chưa có giảng viên */}
+            {group.teachers.length === 0 ? (
+              <div className="text-sm text-gray-500 mb-4 italic">
+                Chưa có giảng viên cho khóa học này.
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+                {group.teachers.map((teacher) => (
+                  <button
+                    key={teacher.id}
+                    onClick={() => {
+                      setSelectedTeacher?.(teacher);
+                      setDialogOpen?.(true);
+                    }}
+                    className="cursor-pointer flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-gray-100 shadow-sm hover:shadow transition-all duration-200 group"
+                    title={`${teacher.name} — ${teacher.title ?? ""}`}
+                  >
+                    {/* Avatar bự hơn */}
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-gray-200 bg-gray-50 shadow-sm transition-transform duration-300">
+                      <Image
+                        src={teacher.avatar ?? "/assets/img/default-avatar.png"}
+                        alt={teacher.name}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+
+                    <div className="text-center mt-3">
+                      <div className="text-sm font-medium text-gray-900 leading-tight">
+                        {teacher.name}
+                      </div>
+                      {teacher.title && (
+                        <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                          {teacher.title}
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {/* Dialog hiển thị thông tin giảng viên */}
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogContent className="sm:max-w-3xl w-full rounded-xl bg-white">
+            <DialogHeader>
+              <DialogTitle className="text-lg font-semibold text-gray-800">
+                Thông tin giảng viên
+              </DialogTitle>
+            </DialogHeader>
+
+            {selectedTeacher ? (
+              <TeacherCard
+                teacher={selectedTeacher}
+                index={allTeachersFlat.findIndex(
+                  (t) => t.id === selectedTeacher.id
+                )}
+                static={true}
+              />
+            ) : (
+              <div className="py-10 text-center text-sm text-gray-500">
+                Không có giảng viên được chọn.
+              </div>
+            )}
+
+            <DialogClose className="sr-only">Đóng</DialogClose>
+          </DialogContent>
+        </Dialog>
       </section>
     </div>
   );

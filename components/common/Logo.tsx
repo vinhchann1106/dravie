@@ -13,8 +13,10 @@ export default function Logo() {
         className="scale-120"
       />
       <div className="leading-none">
-        <span className="font-extrabold text-3xl text-primary">DraVie</span>
-        <p className="text-sm font-medium text-secondary-foreground">
+        <span className="font-extrabold text-2xl md:text-3xl text-primary">
+          DraVie
+        </span>
+        <p className="text-xs md:text-sm font-medium text-secondary-foreground">
           Học một ngôn ngữ - Mở một tầm nhìn
         </p>
       </div>

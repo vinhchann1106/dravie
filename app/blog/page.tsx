@@ -154,7 +154,7 @@ export default function BlogPage() {
 
                         {/* Author & Date */}
                         <div className="flex flex-col gap-1 text-xs text-gray-500">
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-2">
                             <User className="h-4 w-4 text-gray-400" />
                             <span className="whitespace-nowrap">Đăng bởi:</span>
                             <Badge
@@ -165,7 +165,7 @@ export default function BlogPage() {
                             </Badge>
                           </div>
 
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-2">
                             <Clock className="h-4 w-4 text-gray-400" />
                             <span>Thời gian đăng tải: {post.date}</span>
                           </div>
