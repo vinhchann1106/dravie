@@ -104,7 +104,7 @@ export default function Navbar() {
           {/* Nút giỏ hàng */}
           <button
             onClick={() => setOpenCart(true)}
-            className="relative p-2 hover:text-primary transition"
+            className="cursor-pointer relative p-2 hover:text-primary transition"
             aria-label="Mở giỏ hàng"
           >
             <ShoppingCart className="w-6 h-6" />

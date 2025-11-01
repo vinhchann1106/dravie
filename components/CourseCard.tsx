@@ -15,6 +15,7 @@ import {
   Clock,
   PencilLine,
   PlayCircle,
+  ShoppingCart,
   Users,
 } from "lucide-react";
 import { Course } from "@/types/course";
@@ -151,7 +152,8 @@ export default function CourseCard({
             boxShadow: `0 2px 6px ${color}55`,
           }}
         >
-          Thêm vào giỏ
+          <ShoppingCart />
+          Thêm vào giỏ hàng
         </Button>
       </CardFooter>
     </Card>

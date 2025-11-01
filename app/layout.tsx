@@ -31,7 +31,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
-        <Toaster richColors position="top-right" />
+        <Toaster richColors position="top-center" />
         <FloatingContact />
       </body>
     </html>
