@@ -36,7 +36,8 @@ const courses = [
   },
   {
     title: "TOPIK",
-    description: "Lorem",
+    description:
+      "Luyện thi TOPIK hiệu quả với lộ trình học tập bài bản, được cá nhân hóa theo từng cấp độ.",
     color: "from-[#FF4B2B] to-[#FF0000]",
     link: "/topik",
   },

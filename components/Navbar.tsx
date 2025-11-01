@@ -26,7 +26,7 @@ export default function Navbar() {
     { label: "Trang chủ", href: "/" },
     { label: "Khóa học", href: "#", isDropdown: true },
     { label: "Kiểm tra đầu vào", href: "/free-entry-test" },
-    { label: "Luyện đề", href: "#" },
+    { label: "Về chúng tôi", href: "/about" },
     { label: "Blog", href: "#" },
     { label: "Tin tức", href: "#" },
   ];

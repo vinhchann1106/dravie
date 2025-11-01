@@ -4,31 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
-import BeeSpeaking from "@/assets/img/bee_speaking.webp";
 
 const programs = [
   {
     title: "IELTS",
+    link: "/ielts",
     colorIcon: "bg-blue-500",
     color: "text-blue-500 border-blue-400 hover:bg-blue-600/25",
   },
   {
     title: "TOEIC",
+    link: "/toeic",
     colorIcon: "bg-blue-500",
     color: "text-blue-500 border-blue-400 hover:bg-blue-600/25",
   },
   {
     title: "HSK",
+    link: "/hsk",
     colorIcon: "bg-green-500",
     color: "text-green-500 border-green-400 hover:bg-green-600/25",
   },
   {
-    title: "JLPT English",
+    title: "JLPT",
+    link: "/jlpt",
     colorIcon: "bg-amber-500",
     color: "text-amber-500 border-amber-400 hover:bg-amber-600/25",
   },
   {
     title: "TOPIK",
+    link: "/topik",
     colorIcon: "bg-red-500",
     color: "text-red-500 border-red-400 hover:bg-red-600/25",
   },
@@ -68,7 +72,7 @@ export default function RecommendPrograms() {
         className="absolute -top-20 left-1/2 -translate-x-1/2 z-10"
       >
         <Image
-          src={BeeSpeaking}
+          src="/logo.png"
           alt="Bee mascot"
           width={180}
           height={180}
@@ -103,7 +107,7 @@ export default function RecommendPrograms() {
           {programs.map((p, idx) => (
             <motion.div key={idx} variants={item}>
               <Link
-                href="#"
+                href={p.link}
                 className={`group flex items-center gap-3 border ${p.color} bg-white/5 rounded-full px-6 py-3 transition-all duration-200`}
               >
                 <span
