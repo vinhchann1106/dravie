@@ -21,6 +21,8 @@ interface DraVieFaqProps {
   defaultOpenIndex?: number;
   onButtonClick?: () => void;
   className?: string;
+  colorClass?: string; // thêm prop để truyền lớp màu (ví dụ: "text-red-600")
+  buttonBgClass?: string; // lớp bg cho button
 }
 
 export default function DraVieFaq({
@@ -30,6 +32,8 @@ export default function DraVieFaq({
   defaultOpenIndex = 0,
   onButtonClick,
   className,
+  colorClass = "", // mặc định rỗng, truyền lớp tailwind color từ props
+  buttonBgClass = "bg-secondary-foreground/90", // mặc định bg hiện tại
 }: DraVieFaqProps) {
   // helper: loại bỏ **markdown bold**
   const cleanMarkdown = (text: string) => text.replace(/\*\*/g, "");
@@ -44,23 +48,26 @@ export default function DraVieFaq({
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary leading-snug mb-6 text-balance">
-            {title.split(" ").map((word, i) =>
-              i === 1 ? (
-                <span key={i} className="text-secondary-foreground">
-                  {" " + word}
-                </span>
-              ) : (
-                " " + word
-              )
+          <h2
+            className={cn(
+              "text-3xl md:text-4xl font-bold leading-snug mb-6 text-balance",
+              colorClass
             )}
+          >
+            {title.split(" ").map((word, i) => " " + word)}
           </h2>
           <Button
             size="lg"
-            className="cursor-pointer bg-secondary-foreground/90 text-white font-semibold transition-colors rounded-xl px-6 py-5"
+            className={cn(
+              buttonBgClass,
+
+              "cursor-pointer text-white font-semibold transition-colors rounded-xl px-6 py-5",
+              `hover:${buttonBgClass} hover:opacity-80`
+            )}
             onClick={() => {
               const section = document.querySelector("#contact-form");
               if (section) section.scrollIntoView({ behavior: "smooth" });
+              if (onButtonClick) onButtonClick();
             }}
           >
             {buttonText}

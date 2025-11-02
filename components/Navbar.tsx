@@ -16,10 +16,10 @@ export default function Navbar() {
 
   const courseItems = [
     { label: "IELTS", href: "/ielts" },
-    { label: "TOEIC", href: "/toeic" },
-    { label: "HSK", href: "/hsk" },
-    { label: "JLPT", href: "/jlpt" },
-    { label: "TOPIK", href: "/topik" },
+    { label: "TOEIC & CareerPath", href: "/toeic" },
+    { label: "Tiếng Trung", href: "/hsk" },
+    { label: "Tiếng Nhật", href: "/jlpt" },
+    { label: "Tiếng Hàn", href: "/topik" },
   ];
 
   const menuItems = [

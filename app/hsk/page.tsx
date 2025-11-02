@@ -1,5 +1,4 @@
 import TOEICBanner from "./_components/HSKBanner";
-import { ieltsCourses } from "@/mock/course/ieltsCourses";
 import CourseCarousel from "@/components/CourseCarousel";
 import SectionTitle from "@/components/common/SectionTitle";
 import DraVieFaq from "@/components/DraVieFaq";
@@ -9,6 +8,7 @@ import ReviewCarousel from "@/components/Homepage/FeedBack/ReviewCarousel";
 import { hskFeedback } from "@/mock/feedback/hskFeedback";
 import { chineseTeachers } from "@/mock/teachers/chineseTeachers";
 import { hskFaqs } from "@/mock/faqs/hskFaqs";
+import { hskCourses } from "@/mock/course/hskCourses";
 
 export default function Page() {
   return (
@@ -24,14 +24,15 @@ export default function Page() {
             description="Lựa chọn khóa học phù hợp với trình độ và mục tiêu của bạn"
           />
           <div className="container px-4 mx-auto">
-            <CourseCarousel courses={ieltsCourses} hexColor="#207029" />
+            <CourseCarousel courses={hskCourses} hexColor="#207029" />
           </div>
         </section>
         <section className="container px-2 mx-auto py-16">
           <SectionTitle
             color="#207029"
             title="Chất lượng từ đội ngũ giáo viên TOP đầu ngành"
-            description="Hệ thống bài giảng chất lượng, bài chấm chữa chi tiết từ hội đồng học thuật gồm những giáo viên giỏi nhất Việt Nam "
+            description="Giảng viên DraViE đều am hiểu khó khăn của người Việt khi học tiếng Trung.
+Lộ trình luyện HSK được thiết kế rõ ràng, giúp bạn tiến bộ từng cấp độ từ HSK1 đến HSK6."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {chineseTeachers.map((teacher, index) => (

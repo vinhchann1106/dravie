@@ -20,6 +20,8 @@ interface ReviewCarouselProps {
   title?: string;
   description?: string;
   reviews: ReviewItem[];
+  colorFrom?: string; // e.g. "#06b6d4" or "rgba(59,130,246,1)" or "var(--primary)"
+  colorTo?: string; // e.g. "#7c3aed" or "rgba(99,102,241,0.9)" or "var(--accent)"
 }
 
 export default function ReviewCarousel({
@@ -27,6 +29,8 @@ export default function ReviewCarousel({
   title = "Từ phía Học viên và phụ huynh",
   description = "Những tình cảm, niềm tin từ học viên chính là sự ghi nhận lớn nhất dành cho DraVie.",
   reviews,
+  colorFrom = "#234C20", // slightly darker green
+  colorTo = "#357F30", // slightly darker green
 }: ReviewCarouselProps) {
   const isMobile = useMediaQuery("(max-width: 767px)");
 
@@ -36,7 +40,12 @@ export default function ReviewCarousel({
   }, [reviews]);
 
   return (
-    <section className="w-full bg-linear-to-br from-primary to-accent/90 py-16 px-6 rounded-3xl text-white overflow-hidden">
+    <section
+      className="w-full py-16 px-6 rounded-3xl text-white overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(135deg, ${colorFrom}, ${colorTo})`,
+      }}
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-center">
         <div>
           <p className="uppercase text-sm tracking-widest font-semibold text-white/80">

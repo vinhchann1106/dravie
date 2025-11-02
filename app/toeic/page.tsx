@@ -1,5 +1,4 @@
 import TOEICBanner from "./_components/ToeicBanner";
-import { ieltsCourses } from "@/mock/course/ieltsCourses";
 import CourseCarousel from "@/components/CourseCarousel";
 import SectionTitle from "@/components/common/SectionTitle";
 import DraVieFaq from "@/components/DraVieFaq";
@@ -12,6 +11,7 @@ import ReviewCarousel from "@/components/Homepage/FeedBack/ReviewCarousel";
 import { toeicFeedback } from "@/mock/feedback/toeicFeedback";
 import { toeicTeachers } from "@/mock/teachers/toeicTeachers";
 import { toeicFaqs } from "@/mock/faqs/toeicFaqs";
+import { toeicCourses } from "@/mock/course/toeicCourses";
 
 export default function Page() {
   return (
@@ -27,7 +27,7 @@ export default function Page() {
             description="Lựa chọn khóa học phù hợp với trình độ và mục tiêu của bạn"
           />
           <div className="container px-4 mx-auto">
-            <CourseCarousel courses={ieltsCourses} hexColor="#0A2A66" />
+            <CourseCarousel courses={toeicCourses} hexColor="#0A2A66" />
           </div>
         </section>
         <section className="container px-2 mx-auto py-16">
@@ -66,13 +66,20 @@ export default function Page() {
             title="Từ phía Học viên và phụ huynh"
             description="Những tình cảm, niềm tin từ học viên chính là sự ghi nhận lớn nhất dành cho DraVie."
             reviews={toeicFeedback}
+            // màu navy
+            colorFrom="rgba(10,42,102,1)"
+            colorTo="rgba(10,42,102,0.9)"
           />
         </div>
         <section className="container px-2 mx-auto max-w-7xl">
-          <DraVieFaq faqs={toeicFaqs} />
+          <DraVieFaq
+            faqs={toeicFaqs}
+            colorClass="text-[rgba(10,42,102,1)]"
+            buttonBgClass="bg-[rgba(10,42,102,1)]"
+          />
         </section>
         <div className="container mx-auto max-w-7xl mb-16">
-          <ContactForm />
+          <ContactForm color="bg-[rgba(10,42,102,1)] text-white" />
         </div>
       </main>
     </main>

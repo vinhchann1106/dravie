@@ -33,7 +33,7 @@ export default function TOPIKBanner() {
 
           <Button
             size="lg"
-            className="flex items-center gap-2 bg-[#E62727] hover:bg-[#861919] text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
+            className="cursor-pointer flex items-center gap-2 bg-[#E62727] hover:bg-[#861919] text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
             onClick={() => {
               const section = document.querySelector("#courses");
               if (section) section.scrollIntoView({ behavior: "smooth" });
@@ -84,10 +84,10 @@ export default function TOPIKBanner() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative flex justify-center mt-10 md:mt-0"
         >
-          <div className="bg-[#DD0303] rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-[#db4444] rounded-3xl p-8 md:p-12 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]" />
             <Image
-              src="/toeicpage/banner_student.webp"
+              src="/assets/img/banner/topik_banner.png"
               alt="Students TOPIK"
               width={400}
               height={400}

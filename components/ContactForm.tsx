@@ -5,12 +5,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { NativeSelect, NativeSelectOption } from "./ui/native-select";
+import { cn } from "@/lib/utils";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  // ví dụ: "bg-blue-600 text-white" hoặc "bg-[#0046AF] text-white"
+  color?: string;
+}
+
+export default function ContactForm({
+  color = "bg-primary text-white",
+}: ContactFormProps) {
   return (
     <section
       id="contact-form"
-      className="bg-primary text-white rounded-[32px] p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 max-w-5xl mx-auto"
+      className={`${color} rounded-[32px] p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-8 max-w-5xl mx-auto`}
     >
       {/* Left */}
       <div className="flex-1 flex flex-col justify-center w-full">
@@ -124,7 +132,11 @@ export default function ContactForm() {
         <div className="col-span-1 md:col-span-2 flex justify-end mt-2 w-full">
           <Button
             type="submit"
-            className="cursor-pointer text-white px-6 py-2 rounded-lg transition-all duration-200 w-full md:w-auto"
+            className={cn(
+              "cursor-pointer text-white px-6 py-2 rounded-lg transition-all duration-200 w-full md:w-auto",
+              color,
+              `hover:${color} hover:opacity-80` // override hover: giữ cùng màu background
+            )}
           >
             Gửi câu hỏi →
           </Button>

@@ -32,7 +32,7 @@ export default function HSKBanner() {
 
           <Button
             size="lg"
-            className="flex items-center gap-2 bg-primary hover:bg-secondary-foreground text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
+            className="cursor-pointer flex items-center gap-2 bg-primary hover:bg-secondary-foreground text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
             onClick={() => {
               const section = document.querySelector("#courses");
               if (section) section.scrollIntoView({ behavior: "smooth" });

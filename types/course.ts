@@ -5,11 +5,11 @@ export interface Course {
   price: number;
   oldPrice?: number;
   discountPercent?: number;
-  students?: number;
-  hours?: number;
-  topics?: number;
-  lessons?: number;
-  exercises?: number;
+  students?: number | string;
+  hours?: number | string;
+  topics?: number | string;
+  lessons?: number | string;
+  exercises?: number | string;
   duration?: string;
   tag?: string;
   description?: string[];

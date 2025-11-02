@@ -17,9 +17,9 @@ export default function IELTSBanner() {
           transition={{ duration: 0.6 }}
           className="max-w-xl z-10"
         >
-          <div className="text-sm font-semibold text-blue-600 bg-blue-200 w-fit px-4 py-1 rounded-full rounded-bl-none mb-4">
+          {/* <div className="text-sm font-semibold text-blue-600 bg-blue-200 w-fit px-4 py-1 rounded-full rounded-bl-none mb-4">
             KHÓA HỌC IELTS
-          </div>
+          </div> */}
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#1b2c57] mb-4">
             Lộ trình Học & Luyện <span className="text-[#1A73E8]">IELTS</span>{" "}
             toàn diện
@@ -29,7 +29,7 @@ export default function IELTSBanner() {
           </p>
           <Button
             size="lg"
-            className="flex cursor-pointer items-center gap-2 bg-[#1A73E8] hover:bg-[#155cc0] text-white px-6 py-3 rounded-full font-medium shadow-md transition-all"
+            className="cursor-pointer flex cursor-pointer items-center gap-2 bg-[#1A73E8] hover:bg-[#155cc0] text-white px-6 py-3 rounded-full font-medium shadow-md transition-all"
             onClick={() => {
               const section = document.querySelector("#courses");
               if (section) section.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +64,7 @@ export default function IELTSBanner() {
             </div>
             <div>
               <p className="text-sm font-semibold text-gray-800">
-                500.000+ học viên
+                50.000+ học viên
               </p>
               <p className="text-sm text-gray-600">Đã học IELTS tại DraVie</p>
             </div>

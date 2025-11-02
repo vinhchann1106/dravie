@@ -9,33 +9,33 @@ const courses = [
   {
     title: "IELTS",
     description:
-      "Học toàn diện 4 kỹ năng, chấm chữa cặn kẽ cùng giáo viên, luyện tập thông minh với phòng ảo Prep AI.",
+      "Học toàn diện 4 kỹ năng, chấm chữa cặn kẽ cùng giáo viên, luyện tập thông minh với phòng ảo DraVie AI.",
     color: "from-[#2EA6FF] to-[#015BFE]",
     link: "/ielts",
   },
   {
-    title: "TOEIC",
+    title: "TOEIC & CareerPath",
     description:
-      "Lộ trình học tinh gọn, bật mí bí kíp về đích nhanh chóng, dễ dàng đạt mục tiêu khi luyện đề cùng phòng ảo Prep AI.",
+      "Lộ trình học tinh gọn, bật mí bí kíp về đích nhanh chóng, dễ dàng đạt mục tiêu khi luyện đề cùng phòng ảo DraVie AI.",
     color: "from-[#2488FF] to-[#0038FF]",
     link: "/toeic",
   },
   {
-    title: "HSK",
+    title: "Tiếng Trung",
     description:
       "Xây nền chắc chắn, chuẩn chỉnh từ sơ cấp. Luyện tập khẩu ngữ cùng AI, tiến bộ rõ nét qua từng bài.",
     color: "from-[#1AFF88] to-[#009736]",
     link: "/hsk",
   },
   {
-    title: "JLPT English",
+    title: "Tiếng Nhật",
     description:
-      "Giao tiếp linh hoạt với bộ chủ đề có tính ứng dụng cao, thực hành và chấm chữa liên tục trong đa hoạt cảnh cùng phòng ảo nhập vai Prep AI.",
+      "Giao tiếp linh hoạt với bộ chủ đề có tính ứng dụng cao, thực hành và chấm chữa liên tục trong đa hoạt cảnh cùng phòng ảo nhập vai DraVie AI.",
     color: "from-[#FFD83A] to-[#FF8A00]",
     link: "/jlpt",
   },
   {
-    title: "TOPIK",
+    title: "Tiếng Hàn",
     description:
       "Luyện thi TOPIK hiệu quả với lộ trình học tập bài bản, được cá nhân hóa theo từng cấp độ.",
     color: "from-[#FF4B2B] to-[#FF0000]",

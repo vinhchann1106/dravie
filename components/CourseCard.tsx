@@ -47,6 +47,21 @@ export default function CourseCard({
     });
   };
 
+  const formatField = (value?: string | number | null, unit?: string) => {
+    if (value === undefined || value === null) return null;
+    return typeof value === "string"
+      ? value
+      : unit
+      ? `${value.toLocaleString()} ${unit}`
+      : value.toLocaleString();
+  };
+
+  const studentsText = formatField(course.students, "học viên đã đăng ký");
+  const hoursText = formatField(course.hours, "giờ bài học");
+  const exercisesText = formatField(course.exercises, "bài tập thực hành");
+  const topicsText = formatField(course.topics, "chủ đề");
+  const lessonsText = formatField(course.lessons, "bài học");
+
   return (
     <Card
       className="flex flex-col h-full border shadow-md hover:shadow-lg transition-all rounded-2xl"
@@ -91,33 +106,35 @@ export default function CourseCard({
 
         {/* Thông tin chi tiết */}
         <ul className="space-y-1 text-gray-700 text-sm">
-          {course.students && (
-            <li className="flex items-center gap-2">
-              <Users className="w-4 h-4" style={{ color }} />
-              {course.students.toLocaleString()} học viên đã đăng ký
+          {studentsText && (
+            <li className="flex items-start gap-2">
+              <Users className="w-4 h-4 mt-1 shrink-0" style={{ color }} />
+              {studentsText}
             </li>
           )}
-          {course.hours && (
-            <li className="flex items-center gap-2">
-              <PlayCircle className="w-4 h-4" style={{ color }} />
-              {course.hours} giờ bài học
+          {hoursText && (
+            <li className="flex items-start gap-2">
+              <PlayCircle className="w-4 h-4 mt-1 shrink-0" style={{ color }} />
+              {hoursText}
             </li>
           )}
-          {(course.topics || course.lessons) && (
-            <li className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4" style={{ color }} />
-              {course.topics} chủ đề, {course.lessons} bài học
+          {(topicsText || lessonsText) && (
+            <li className="flex items-start gap-2">
+              <BookOpen className="w-4 h-4 mt-1 shrink-0" style={{ color }} />
+              {topicsText && <span>{topicsText}</span>}
+              {topicsText && lessonsText && <span>, </span>}
+              {lessonsText && <span>{lessonsText}</span>}
             </li>
           )}
-          {course.exercises && (
-            <li className="flex items-center gap-2">
-              <PencilLine className="w-4 h-4" style={{ color }} />
-              {course.exercises} bài tập thực hành
+          {exercisesText && (
+            <li className="flex items-start gap-2">
+              <PencilLine className="w-4 h-4 mt-1 shrink-0" style={{ color }} />
+              {exercisesText}
             </li>
           )}
           {course.duration && (
-            <li className="flex items-center gap-2">
-              <Clock className="w-4 h-4" style={{ color }} />
+            <li className="flex items-start gap-2">
+              <Clock className="w-4 h-4 mt-1 shrink-0" style={{ color }} />
               Khóa học có giá trị trong {course.duration}.
             </li>
           )}
@@ -129,10 +146,10 @@ export default function CourseCard({
             {course.description.map((desc, i) => (
               <li
                 key={i}
-                className="flex items-center gap-2 text-sm text-gray-700 leading-relaxed"
+                className="flex items-start gap-2 text-sm text-gray-700 leading-relaxed"
               >
                 <Check
-                  className="min-w-4 min-h-4 w-4 h-4 shrink-0"
+                  className="min-w-4 min-h-4 w-4 h-4 mt-1 shrink-0 shrink-0"
                   style={{ color: "#16a34a" }}
                 />
                 <span className="flex-1">{desc}</span>

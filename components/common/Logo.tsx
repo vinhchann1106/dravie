@@ -8,15 +8,16 @@ export default function Logo() {
       <Image
         src={DinoImage.src}
         alt="Logo"
-        width={72}
-        height={72}
-        className="scale-120"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="scale-120 size-full max-w-[72px] md:max-w-[76px]"
       />
       <div className="leading-none">
-        <span className="font-extrabold text-2xl md:text-3xl text-primary">
+        <span className="font-extrabold text-2xl md:text-4xl text-primary">
           DraVie
         </span>
-        <p className="text-xs md:text-sm font-medium text-secondary-foreground">
+        <p className="text-xs font-medium text-secondary-foreground">
           Học một ngôn ngữ - Mở một tầm nhìn
         </p>
       </div>

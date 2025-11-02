@@ -131,9 +131,14 @@ export default function AboutPage() {
             />
             <h3 className="text-2xl font-bold text-blue-700 mb-3">Tầm nhìn</h3>
             <p className="text-gray-600 leading-relaxed">
-              Trở thành nền tảng kết nối giáo dục hàng đầu Việt Nam, nơi kết hợp
-              chặt chẽ giữa phát triển năng lực nghề nghiệp, công nghệ giáo dục
-              hiện đại và cộng đồng học tập năng động.
+              Công ty TNHH Giáo dục Rồng Việt, với nền tảng trực tuyến DraViE,
+              định hướng trở thành nền tảng giáo dục trực tuyến hàng đầu tại
+              Việt Nam, tiên phong trong việc kết nối tri thức, đổi mới phương
+              pháp học tập và xây dựng cộng đồng học tập số toàn diện. Công ty
+              hướng tới mục tiêu nâng cao năng lực con người Việt Nam trong kỷ
+              nguyên số, nơi mỗi cá nhân có thể học tập suốt đời, tiếp cận tri
+              thức mọi lúc, mọi nơi, thông qua các giải pháp giáo dục linh hoạt
+              và ứng dụng công nghệ hiện đại.
             </p>
           </motion.div>
 
@@ -152,9 +157,17 @@ export default function AboutPage() {
             />
             <h3 className="text-2xl font-bold text-blue-700 mb-3">Sứ mệnh</h3>
             <p className="text-gray-600 leading-relaxed">
-              Dravie tư vấn, đào tạo và lan tỏa tri thức thông qua một hệ sinh
-              thái tích hợp nhằm nâng cao năng lực quản lý, giảng dạy và vận
-              hành giáo dục một cách bài bản và bền vững.
+              Công ty TNHH Giáo dục Rồng Việt mang trong mình sứ mệnh kết nối
+              tri thức – nuôi dưỡng năng lực – lan tỏa giá trị thông qua việc
+              xây dựng và vận hành nền tảng giáo dục trực tuyến DraViE hiện đại,
+              thân thiện và hiệu quả.Chúng tôi cam kết mang đến cho người học
+              môi trường học tập linh hoạt, chất lượng và công bằng, giúp mọi cá
+              nhân có thể tiếp cận tri thức mọi lúc, mọi nơi, phát triển năng
+              lực học tập suốt đời và sẵn sàng hội nhập trong thời đại số. Thông
+              qua việc kết hợp công nghệ với phương pháp sư phạm tiên tiến, Rồng
+              Việt hướng đến việc nâng cao năng lực đội ngũ giáo viên, tối ưu
+              hiệu quả đào tạo của các tổ chức giáo dục, đồng thời kết nối cộng
+              đồng học tập trong một hệ sinh thái giáo dục số toàn diện.
             </p>
           </motion.div>
         </div>
@@ -164,32 +177,66 @@ export default function AboutPage() {
       <section className="py-24 bg-blue-50">
         <SectionTitle title="Giá Trị Cốt Lõi" align="center" />
 
-        <div className="container mx-auto px-6 grid md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10">
-          {coreValues.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-            >
-              <Card className="h-full text-center shadow-sm hover:shadow-md transition-all">
-                <CardContent className="p-6 flex flex-col items-center justify-center">
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    width={48}
-                    height={48}
-                  />
-                  <h4 className="text-lg font-semibold text-blue-700 mt-3 mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="container mx-auto px-6 mt-10">
+          {/* Top row: 3 columns on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {coreValues.slice(0, 3).map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Card className="h-full text-center shadow-sm hover:shadow-md transition-all">
+                  <CardContent className="p-6 flex flex-col items-center justify-center">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={48}
+                      height={48}
+                    />
+                    <h4 className="text-lg font-semibold text-blue-700 mt-3 mb-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom row: 2 columns on desktop, centered */}
+          <div className="mt-6 flex justify-center">
+            <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {coreValues.slice(3).map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: (i + 3) * 0.1 }}
+                >
+                  <Card className="h-full text-center shadow-sm hover:shadow-md transition-all">
+                    <CardContent className="p-6 flex flex-col items-center justify-center">
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={48}
+                        height={48}
+                      />
+                      <h4 className="text-lg font-semibold text-blue-700 mt-3 mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -328,45 +375,41 @@ const coreValues = [
   {
     icon: "/assets/img/about_page/connect.png",
     title: "Kết nối bền vững",
-    desc: "Liên kết giữa nhà trường, giáo viên, chuyên gia và đối tác để cùng kiến tạo giá trị dài hạn.",
-  },
-  {
-    icon: "/assets/img/about_page/practical.png",
-    title: "Thực tiễn & khả thi",
-    desc: "Phát triển từ hiểu biết sâu sắc và thực tiễn giáo dục Việt Nam, đảm bảo khả năng triển khai hiệu quả.",
+    desc: "DraViE là cầu nối giữa giáo viên, học sinh, chuyên gia và các đối tác học thuật, tạo nên hệ sinh thái giáo dục tương tác và hỗ trợ lẫn nhau. Chúng tôi tin rằng sức mạnh của sự kết nối sẽ cộng hưởng nguồn lực, lan tỏa tri thức và cùng kiến tạo giá trị dài hạn cho giáo dục.",
   },
   {
     icon: "/assets/img/about_page/flexible.png",
-    title: "Đổi mới & linh hoạt",
-    desc: "Tiên phong trong ứng dụng công nghệ và tư duy mở để thích ứng với thay đổi của giáo dục hiện đại.",
+    title: "Công nghệ vì con người",
+    desc: "Công nghệ là phương tiện, con người là trung tâm. Chúng tôi ứng dụng công nghệ hiện đại không phải để thay thế yếu tố con người, mà để nâng cao trải nghiệm học tập, cá nhân hóa nội dung giảng dạy và tạo ra sự kết nối có ý nghĩa giữa giáo viên và học sinh. Mọi giải pháp công nghệ của DraViE đều hướng đến mục tiêu phục vụ nhu cầu thực tiễn, nâng cao chất lượng cuộc sống và phần nào tạo điều kiện học tập, giảng dạy linh hoạt cho cả giáo viên và học viên.",
+  },
+  {
+    icon: "/assets/img/about_page/practical.png",
+    title: "Thực tiễn và khả thi",
+    desc: "Mọi giải pháp được phát triển từ hiểu biết sâu sắc về thực tiễn vận hành giáo dục tại Việt Nam, đảm bảo khả năng triển khai thực tế và phù hợp với từng bối cảnh.",
   },
   {
     icon: "/assets/img/about_page/share.png",
-    title: "Lan tỏa tri thức",
-    desc: "Chia sẻ kiến thức, dữ liệu và kinh nghiệm nhằm thúc đẩy cộng đồng học tập phát triển.",
+    title: "Chất lượng và uy tín",
+    desc: "Chất lượng giáo dục là nền tảng của mọi hoạt động. Chúng tôi cam kết cung cấp nội dung học tập được thiết kế bài bản, giảng viên có trình độ chuyên môn cao và quy trình đào tạo chuẩn hóa theo tiêu chuẩn quốc tế. Uy tín được xây dựng từ sự minh bạch, trách nhiệm và kết quả học tập thực tế mà người học đạt được thông qua nền tảng DraViE.",
   },
   {
     icon: "/assets/img/about_page/responsible.png",
-    title: "Đồng hành có trách nhiệm",
-    desc: "Đặt lợi ích giáo dục và sự phát triển bền vững của cộng đồng lên hàng đầu.",
+    title: "Đổi mới sáng tạo",
+    desc: "Trong bối cảnh giáo dục không ngừng thay đổi, chúng tôi luôn chủ động đổi mới phương pháp giảng dạy, cập nhật nội dung học tập và cải tiến trải nghiệm người dùng. DraViE khuyến khích tư duy chủ động, dám chia sẻ và liên tục học hỏi để hoàn thiện, nhằm mang lại giá trị vượt trội cho khách hàng và đối tác.",
   },
 ];
 
 const audiences = [
   {
-    title: "Giáo viên",
-    desc: "Tìm kiếm mô hình giảng dạy hiện đại, nội dung số và cơ hội phát triển chuyên môn.",
+    title: "Học sinh – sinh viên",
+    desc: "Cần học ngôn ngữ để phục vụ học tập, du học, và thi chứng chỉ.",
   },
   {
-    title: "Lãnh đạo / Quản lý",
-    desc: "Nâng cao chất lượng đào tạo, chuyển đổi số và tối ưu hiệu quả vận hành tổ chức giáo dục.",
+    title: "Phụ huynh – trẻ nhỏ",
+    desc: "Có nhu cầu học sớm để rèn phản xạ ngôn ngữ.",
   },
   {
-    title: "Tổ chức",
-    desc: "Các đơn vị EdTech, nhà xuất bản hoặc trung tâm học liệu muốn hợp tác chiến lược.",
-  },
-  {
-    title: "Chuyên gia",
-    desc: "Nhà nghiên cứu, chuyên gia giáo dục mong muốn lan tỏa tri thức và kết nối học thuật.",
+    title: "Người đi làm",
+    desc: "Cần cải thiện ngoại ngữ phục vụ công việc, đặc biệt trong các lĩnh vực xuất nhập khẩu, du lịch, và dịch vụ.",
   },
 ];

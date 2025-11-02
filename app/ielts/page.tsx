@@ -66,13 +66,20 @@ export default function Page() {
             title="Từ phía Học viên"
             description="Những tình cảm, niềm tin từ học viên chính là sự ghi nhận lớn nhất dành cho DraVie."
             reviews={ieltsFeedback}
+            colorFrom="rgba(59,130,246,1)"
+            colorTo="rgba(59,133,255,0.9)"
           />
         </div>
         <section className="container px-2 mx-auto max-w-7xl">
-          <DraVieFaq faqs={ieltsFaqs} />
+          <DraVieFaq
+            faqs={ieltsFaqs}
+            colorClass="text-[#1447e6]"
+            buttonBgClass="bg-[rgba(59,130,246,1)]"
+            className="text-[#1447e6]"
+          />
         </section>
         <section className="container mx-auto max-w-7xl mb-16">
-          <ContactForm />
+          <ContactForm color="bg-[#0046AF] text-white" />
         </section>
       </main>
     </main>

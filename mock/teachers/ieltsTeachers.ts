@@ -16,7 +16,7 @@ export const ieltsTeachers = [
   {
     id: "2",
     name: "Mr. Daniel",
-    title: "Giảng viên Tiếng Anh",
+    title: "Giảng viên IELTS",
     bio: [
       "Cử nhân Ngôn ngữ học – University of California",
       "Chứng chỉ giảng dạy quốc tế CELTA – Cambridge",

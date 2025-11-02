@@ -32,7 +32,7 @@ export default function TOEICBanner() {
 
           <Button
             size="lg"
-            className="flex items-center gap-2 bg-[#174EA6] hover:bg-[#1E63D0] text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
+            className="cursor-pointer flex items-center gap-2 bg-[#174EA6] hover:bg-[#1E63D0] text-white px-6 py-3 rounded-full font-medium shadow-lg transition-all"
             onClick={() => {
               const section = document.querySelector("#courses");
               if (section) section.scrollIntoView({ behavior: "smooth" });
