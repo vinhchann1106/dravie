@@ -66,14 +66,19 @@ export default function StickyStepsSection() {
                 <p className="text-base md:text-xl text-balance">{step.desc}</p>
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="w-full max-w-[320px] sm:max-w-[500px]">
+                <div
+                  className="w-full max-w-[320px] relative"
+                  style={{ aspectRatio: "683/1024" }}
+                >
                   <Image
                     src={step.img}
                     alt={step.title}
-                    className="rounded-2xl object-contain w-full h-auto"
-                    width={500}
-                    height={300}
-                    sizes="(max-width: 640px) 90vw, 500px"
+                    fill
+                    className="rounded-2xl object-contain"
+                    // sizes để browser/chrome chọn đúng kích thước cho DPR cao trên desktop
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw"
+                    quality={90}
+                    loading="lazy"
                   />
                 </div>
               </div>
