@@ -86,11 +86,11 @@ export default function TOEICBanner() {
           <div className="bg-[#174EA6] rounded-3xl p-8 md:p-12 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]" />
             <Image
-              src="/toeicpage/banner_student.webp"
+              src="/toeicpage/banner_student.jpg"
               alt="Students TOEIC"
               width={400}
               height={400}
-              className="relative z-10"
+              className="relative z-10 rounded-lg"
               priority
             />
             <div className="absolute top-4 left-4 bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm">

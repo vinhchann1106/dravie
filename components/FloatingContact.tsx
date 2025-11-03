@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,13 +16,93 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { NotebookPen, PhoneCall } from "lucide-react";
+import { Bot, NotebookPen, PhoneCall, Send } from "lucide-react";
 import { NativeSelect, NativeSelectOption } from "./ui/native-select";
 import { Textarea } from "./ui/textarea";
+
+type Msg = { id: number; sender: "bot" | "user"; text: string };
 
 export default function FloatingContact() {
   const [open, setOpen] = useState(false);
   const [openForm, setOpenForm] = useState(false);
+  const [openChat, setOpenChat] = useState(false);
+
+  const [messages, setMessages] = useState<Msg[]>([
+    {
+      id: 1,
+      sender: "bot",
+      text: "Xin chào! Mình là DraVie AI — mình có thể giúp bạn tư vấn chương trình học hoặc trả lời thắc mắc nhanh. Bạn muốn bắt đầu từ vấn đề gì?",
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [nextId, setNextId] = useState(2);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  // touch start Y for mobile touch handling
+  const touchStartY = useRef<number | null>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, openChat]);
+
+  const sendMessage = (text: string) => {
+    if (!text.trim()) return;
+    const userMsg: Msg = { id: nextId, sender: "user", text };
+    setNextId((n) => n + 1);
+    setMessages((m) => [...m, userMsg]);
+    setInput("");
+
+    // Fake AI reply
+    const replyId = nextId + 1;
+    setNextId((n) => n + 1);
+    setTimeout(() => {
+      const botReply: Msg = {
+        id: replyId,
+        sender: "bot",
+        text:
+          'Mình đã nhận được câu hỏi của bạn: "' +
+          (text.length > 80 ? text.slice(0, 77) + "..." : text) +
+          '". Team DraVie sẽ liên hệ chi tiết hoặc bạn có thể gửi thêm thông tin nhé!',
+      };
+      setMessages((m) => [...m, botReply]);
+    }, 800);
+  };
+
+  // Wheel handler: stop propagation when inner element can scroll in wheel direction
+  const handleWheel = (e: React.WheelEvent) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const delta = e.deltaY;
+    const canScrollUp = scrollTop > 0;
+    const canScrollDown = scrollTop + clientHeight < scrollHeight;
+    if ((delta < 0 && canScrollUp) || (delta > 0 && canScrollDown)) {
+      // allow inner scroll, prevent outer handlers (like Lenis) from capturing
+      e.stopPropagation();
+    }
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0]?.clientY ?? null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const el = scrollRef.current;
+    if (!el || touchStartY.current === null) return;
+    const currentY = e.touches[0]?.clientY ?? 0;
+    const delta = touchStartY.current - currentY; // >0 swipe up, <0 swipe down
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const canScrollUp = scrollTop > 0;
+    const canScrollDown = scrollTop + clientHeight < scrollHeight;
+    if ((delta < 0 && canScrollUp) || (delta > 0 && canScrollDown)) {
+      // stop propagation so outer smooth scroll doesn't take over
+      e.stopPropagation();
+    }
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -68,7 +148,7 @@ export default function FloatingContact() {
             >
               <button
                 onClick={() => setOpenForm(true)}
-                className="text-primary group flex items-center space-x-2 rounded-full bg-white shadow-lg py-2 px-4 hover:bg-emerald-50 transition"
+                className="cursor-pointer text-primary group flex items-center space-x-2 rounded-full bg-white shadow-lg py-2 px-4 hover:bg-emerald-50 transition"
               >
                 <NotebookPen />
                 <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -93,6 +173,23 @@ export default function FloatingContact() {
                 </span>
               </Link>
             </motion.div>
+
+            {/* Nút Chat (fake AI) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <button
+                onClick={() => setOpenChat(true)}
+                className="text-primary cursor-pointer group flex items-center space-x-2 rounded-full bg-white shadow-lg py-2 px-4 hover:bg-emerald-50 transition"
+              >
+                <Bot />
+                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                  AI Chatbot
+                </span>
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -101,12 +198,12 @@ export default function FloatingContact() {
         onClick={() => setOpen(!open)}
         className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-200"
         animate={{
-          y: [0, -12, 0], // nảy lên xuống
-          rotate: [0, -16, 16, 0], // nghiêng trái phải
+          y: [0, -12, 0],
+          rotate: [0, -16, 16, 0],
         }}
         transition={{
-          duration: 2.4, // tốc độ chậm tự nhiên
-          repeat: Infinity, // lặp vô hạn
+          duration: 2.4,
+          repeat: Infinity,
           ease: "easeInOut",
         }}
       >
@@ -118,6 +215,101 @@ export default function FloatingContact() {
           className="rounded-full"
         />
       </motion.button>
+
+      {/* Chat UI (fake AI) */}
+      <AnimatePresence>
+        {openChat && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="mb-3 w-[320px] sm:w-[360px] rounded-xl bg-white shadow-xl overflow-hidden"
+          >
+            <div className="flex items-center justify-between px-3 py-2 bg-primary/95 text-white">
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/logo.png"
+                  alt="Bot"
+                  width={36}
+                  height={36}
+                  className="rounded-full"
+                />
+                <div>
+                  <div className="text-sm font-semibold">DraVie AI</div>
+                  <div className="text-xs opacity-80">Trợ lý tư vấn nhanh</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    setOpenChat(false);
+                  }}
+                  aria-label="Đóng chat"
+                  className="text-white opacity-90 hover:opacity-100"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <div
+              ref={scrollRef}
+              onWheel={handleWheel}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              // prevent scroll chaining and allow vertical pan on touch devices
+              className="h-64 overflow-y-auto px-3 py-3 space-y-3 bg-gray-50 overscroll-contain"
+              style={{ touchAction: "pan-y" }}
+            >
+              {messages.map((m) =>
+                m.sender === "bot" ? (
+                  <div key={m.id} className="flex items-start gap-2">
+                    <Image
+                      src="/logo.png"
+                      alt="bot"
+                      width={36}
+                      height={36}
+                      className="rounded-full"
+                    />
+                    <div className="bg-white text-sm text-gray-800 px-3 py-2 rounded-lg shadow-sm max-w-[80%]">
+                      {m.text}
+                    </div>
+                  </div>
+                ) : (
+                  <div key={m.id} className="flex items-start justify-end">
+                    <div className="bg-primary text-white text-sm px-3 py-2 rounded-lg shadow-sm max-w-[80%]">
+                      {m.text}
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage(input);
+              }}
+              className="flex items-center gap-2 px-3 py-3 bg-white"
+            >
+              <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Nhập tin nhắn..."
+                className="flex-1 rounded-full border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-label="Nhập tin nhắn"
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-full bg-primary p-2 text-white hover:brightness-105"
+                aria-label="Gửi"
+              >
+                <Send size={16} />
+              </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Dialog Form tư vấn */}
       <Dialog open={openForm} onOpenChange={setOpenForm}>

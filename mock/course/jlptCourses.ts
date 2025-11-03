@@ -21,8 +21,8 @@ export const jlptCourses: Course[] = [
     ],
   },
   {
-    id: "jlpt-n5-n4-prep",
-    title: "JLPT N5–N4 Prep – Nền tảng tiếng Nhật cơ bản",
+    id: "jlpt-n5-n4-dravie",
+    title: "JLPT N5–N4 DraVie – Nền tảng tiếng Nhật cơ bản",
     price: 699000,
     oldPrice: 899000,
     discountPercent: 22,

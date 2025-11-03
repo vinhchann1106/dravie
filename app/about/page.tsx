@@ -18,6 +18,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
 
 export default function AboutPage() {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -281,64 +282,103 @@ export default function AboutPage() {
       <section className="py-16 bg-white container px-4 mx-auto">
         <SectionTitle title="Đội Ngũ Giảng Viên" align="center" />
 
-        {groupedTeachers.map((group) => (
-          <div
-            key={group.id}
-            className="mb-14 border-t border-gray-200 pt-8 first:border-t-0 first:pt-0"
-          >
-            {/* Header mỗi nhóm */}
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6">
-              <h3 className="text-xl font-semibold text-gray-800 tracking-tight mb-2 sm:mb-0">
-                {group.title}
-              </h3>
-              <div className="text-sm text-gray-500">
-                {group.teachers.length} giảng viên
+        {groupedTeachers.map((group) => {
+          const counts: Record<string, string> = {
+            ielts: "50+",
+            toeic: "40+",
+            chinese: "30+",
+            japanese: "10+",
+            korean: "10+",
+          };
+
+          return (
+            <div
+              key={group.id}
+              className="mb-14 border-t border-gray-200 pt-8 first:border-t-0 first:pt-0"
+            >
+              {/* Center and limit max width */}
+              <div className="max-w-6xl mx-auto px-4">
+                {/* Header mỗi nhóm */}
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6">
+                  <div className="flex items-center gap-x-4">
+                    <h3 className="text-xl font-semibold text-gray-800 tracking-tight mb-2 sm:mb-0">
+                      {group.title}
+                    </h3>
+                    <Badge className="text-sm px-3">
+                      {counts[group.id] || "?"} giảng viên
+                    </Badge>
+                  </div>
+
+                  {/* removed exact count, will show stylized circle later */}
+                  <div className="text-sm text-gray-500 hidden sm:block">
+                    {/* kept invisible placeholder to preserve spacing on small screens */}
+                  </div>
+                </div>
+
+                {/* Nếu chưa có giảng viên */}
+                {group.teachers.length === 0 ? (
+                  <div className="text-sm text-gray-500 mb-4 italic">
+                    Chưa có giảng viên cho khóa học này.
+                  </div>
+                ) : (
+                  <div className="relative">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 gap-6">
+                      {group.teachers.map((teacher) => (
+                        <button
+                          key={teacher.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedTeacher(teacher);
+                            setDialogOpen(true);
+                          }}
+                          className="relative cursor-pointer flex flex-col items-stretch bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group"
+                          title={`${teacher.name} — ${teacher.title ?? ""}`}
+                          aria-label={`Xem thông tin giảng viên ${teacher.name}`}
+                        >
+                          {/* Top: full-width avatar */}
+                          <div className="relative w-full h-[360px] bg-gray-100 overflow-hidden">
+                            <Image
+                              src={
+                                teacher.avatar ??
+                                "/assets/img/default-avatar.png"
+                              }
+                              alt={teacher.name}
+                              fill
+                              className="object-cover object-top"
+                            />
+
+                            {/* Slide-up overlay from bottom on hover/focus */}
+                            <div
+                              className="absolute inset-x-0 bottom-0 h-12 flex items-center justify-center
+                 bg-gradient-to-t from-black/70 to-transparent text-white text-sm
+                 transform translate-y-full group-hover:translate-y-0 group-focus:translate-y-0
+                 transition-transform duration-200"
+                              aria-hidden="true"
+                            >
+                              Xem thông tin giảng viên
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="px-4 py-3 text-center">
+                            <div className="text-sm font-medium text-gray-900 leading-tight">
+                              {teacher.name}
+                            </div>
+                            {teacher.title && (
+                              <div className="text-xs text-gray-500 mt-1 line-clamp-1">
+                                {teacher.title}
+                              </div>
+                            )}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-
-            {/* Nếu chưa có giảng viên */}
-            {group.teachers.length === 0 ? (
-              <div className="text-sm text-gray-500 mb-4 italic">
-                Chưa có giảng viên cho khóa học này.
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-                {group.teachers.map((teacher) => (
-                  <button
-                    key={teacher.id}
-                    onClick={() => {
-                      setSelectedTeacher?.(teacher);
-                      setDialogOpen?.(true);
-                    }}
-                    className="cursor-pointer flex flex-col items-center p-3 rounded-xl bg-gray-50 hover:bg-gray-100 shadow-sm hover:shadow transition-all duration-200 group"
-                    title={`${teacher.name} — ${teacher.title ?? ""}`}
-                  >
-                    {/* Avatar bự hơn */}
-                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-gray-200 bg-gray-50 shadow-sm transition-transform duration-300">
-                      <Image
-                        src={teacher.avatar ?? "/assets/img/default-avatar.png"}
-                        alt={teacher.name}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
-
-                    <div className="text-center mt-3">
-                      <div className="text-sm font-medium text-gray-900 leading-tight">
-                        {teacher.name}
-                      </div>
-                      {teacher.title && (
-                        <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">
-                          {teacher.title}
-                        </div>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
 
         {/* Dialog hiển thị thông tin giảng viên */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
