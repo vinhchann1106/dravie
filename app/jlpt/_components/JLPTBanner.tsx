@@ -92,6 +92,7 @@ export default function JLPTBanner() {
               width={400}
               height={400}
               className="relative z-10"
+              priority
             />
             <div className="absolute top-4 left-4 bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm">
               👋 Welcome
