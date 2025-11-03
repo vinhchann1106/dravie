@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import FloatingContact from "@/components/FloatingContact";
-import { Toaster } from "@/components/ui/sonner";
+import AppLayout from "@/components/layout/AppLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,24 +13,19 @@ export const metadata: Metadata = {
   title: "DraVie",
   description: "DraVie Học một ngôn ngữ - Mở một tầm nhìn",
   icons: {
-    icon: "/favicon.ico", // hoặc .ico nếu bạn dùng ico
+    icon: "/favicon.ico",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased bg-[#F7FAFC]`}>
-        <div className="pb-[88px]">
-          <Navbar />
-        </div>
-        {children}
-        <Toaster richColors position="top-center" />
-        <FloatingContact />
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );

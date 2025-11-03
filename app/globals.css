@@ -133,3 +133,21 @@
     @apply bg-background text-foreground;
   }
 }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.navbar-fixed,
+.floating-contact {
+  transform: none !important;
+  will-change: auto;
+}

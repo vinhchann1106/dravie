@@ -63,23 +63,32 @@ export default function RecommendPrograms() {
 
   return (
     <div className="container mx-auto mt-20 px-6 relative">
-      {/* Bee Image */}
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        variants={item}
         className="absolute -top-20 left-1/2 -translate-x-1/2 z-10"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <Image
-          src="/logo.png"
-          alt="Bee mascot"
-          width={180}
-          height={180}
-          className="w-[139px] md:w-[174px]"
-        />
+        <motion.div
+          whileHover={{ rotate: 3, scale: 1.03 }}
+          transition={{ type: "spring", stiffness: 200 }}
+        >
+          <Image
+            src="/logo.png"
+            alt="DraViE logo (high-res)"
+            // increase intrinsic size so Next/Image serves a higher-res image
+            width={800}
+            height={800}
+            priority
+            quality={100}
+            // display at desired CSS size while keeping a high-res source
+            className="drop-shadow-2xl rotate-[6deg] translate-y-12 w-48 h-48 object-contain"
+            // subtle contrast/saturation boost to look crisper
+            style={{ filter: "contrast(1.03) saturate(1.06)" }}
+          />
+        </motion.div>
       </motion.div>
-
       {/* Section */}
       <motion.section
         variants={container}

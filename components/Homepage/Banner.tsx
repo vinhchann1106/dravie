@@ -183,7 +183,7 @@ export default function Banner() {
 
         <div>
           <p className="text-sm font-extrabold text-[#2F4F2F]">
-            <span className="text-emerald-700">500.000+</span> học viên
+            <span className="text-emerald-700">100.000+</span> học viên
           </p>
           <p className="text-sm text-muted-foreground">
             Đã và đang học tập trên DraViE.

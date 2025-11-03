@@ -11,7 +11,10 @@ export default function Logo() {
         width={0}
         height={0}
         sizes="100vw"
+        priority
+        quality={100}
         className="scale-120 size-full max-w-[72px] md:max-w-[76px]"
+        style={{ filter: "contrast(1.03) saturate(1.06)" }}
       />
       <div className="leading-none">
         <span className="font-extrabold text-2xl md:text-4xl text-primary">
