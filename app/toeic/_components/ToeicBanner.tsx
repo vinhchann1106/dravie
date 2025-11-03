@@ -83,7 +83,7 @@ export default function TOEICBanner() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative flex justify-center mt-10 md:mt-0"
         >
-          <div className="bg-[#174EA6] rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-[#174EA6] rounded-3xl px-8 pb-8 pt-14 md:p-12 relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1),transparent)]" />
             <Image
               src="/toeicpage/banner_student.jpg"
