@@ -4,9 +4,9 @@ export const hskCourses: Course[] = [
   {
     id: "chinese-communication",
     title: "Chinese for Communication – Tiếng Trung Giao tiếp Thực tế",
-    price: 599000,
-    oldPrice: 799000,
-    discountPercent: 25,
+    price: 799000,
+    oldPrice: 999000,
+    discountPercent: 20,
     students: 10000,
     hours: 45,
     topics: 20,
@@ -27,9 +27,9 @@ export const hskCourses: Course[] = [
     id: "chinese-logistics",
     title:
       "Chinese for Logistics – Tiếng Trung Chuyên ngành Logistics & Xuất nhập khẩu",
-    price: 749000,
-    oldPrice: 949000,
-    discountPercent: 21,
+    price: 699000,
+    oldPrice: 999000,
+    discountPercent: 30,
     students: 6500,
     hours: 50,
     topics: 25,
@@ -56,7 +56,7 @@ export const hskCourses: Course[] = [
     hours: 45,
     topics: 20,
     lessons: 180,
-    duration: "12 tháng",
+    duration: "10 tháng",
     tag: "Phần mềm online",
     description: [
       "Ngữ âm - Chữ Hán - Từ vựng - Ngữ pháp",
@@ -84,7 +84,7 @@ export const hskCourses: Course[] = [
     hours: 60,
     topics: 30,
     lessons: 200,
-    duration: "12 tháng",
+    duration: "10 tháng",
     tag: "Phần mềm online",
     description: [
       "Chiến lược làm bài - Từ vựng - Ngữ pháp - Luyện nghe chép chính tả",
@@ -111,7 +111,7 @@ export const hskCourses: Course[] = [
     hours: 80,
     topics: 35,
     lessons: 260,
-    duration: "12 tháng",
+    duration: "10 tháng",
     tag: "Phần mềm online",
     description: [
       "Từ vựng - Ngữ pháp - Nghe chép chính tả - Chiến lược làm bài",
@@ -136,7 +136,7 @@ export const hskCourses: Course[] = [
     hours: 100,
     topics: 40,
     lessons: 320,
-    duration: "12 tháng",
+    duration: "10 tháng",
     tag: "Phần mềm online",
     description: [
       "Từ vựng - Ngữ pháp - Nghe chép chính tả - Chiến lược làm bài",
@@ -161,7 +161,7 @@ export const hskCourses: Course[] = [
     hours: 120,
     topics: 45,
     lessons: 380,
-    duration: "12 tháng",
+    duration: "10 tháng",
     tag: "Phần mềm online",
     description: [
       "Dành cho các bạn đã thi đỗ chứng chỉ HSK 5 hoặc có trình độ tương đương HSK 5.",
