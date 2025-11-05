@@ -792,7 +792,7 @@ export default function AchievementsSection() {
     <section className="max-w-6xl mx-auto py-12 mt-12">
       <div className="text-center text-balance">
         <h2 className="text-3xl font-extrabold text-secondary-foreground">
-          <span className="text-accent text-4xl">70.000+</span> Học viên
+          <span className="text-accent text-4xl">90.000+</span> Học viên
         </h2>
         <p className="text-[#334155] text-lg md:text-xl mb-6 max-w-3xl mx-auto">
           đạt <strong>thành tích cao</strong> sau khi học tại DraVie

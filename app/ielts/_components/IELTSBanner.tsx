@@ -64,7 +64,7 @@ export default function IELTSBanner() {
             </div>
             <div>
               <p className="text-sm font-semibold text-gray-800">
-                50.000+ học viên
+                40.000+ học viên
               </p>
               <p className="text-sm text-gray-600">Đã học IELTS tại DraVie</p>
             </div>
