@@ -69,7 +69,7 @@ export default function TOEICBanner() {
 
             <div>
               <p className="text-sm font-semibold text-white">
-                30.000+ học viên
+                40.000+ học viên
               </p>
               <p className="text-sm text-blue-200">Đã học TOEIC tại DraVie</p>
             </div>
