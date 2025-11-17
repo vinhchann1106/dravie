@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### 🌐 DraVie – Landing Page Nền Tảng Học Ngoại Ngữ
 
-## Getting Started
+N24DCCN183 – Nguyễn Ngọc Vinh
 
-First, run the development server:
+DraVie là dự án Landing Page giới thiệu nền tảng học ngoại ngữ, được xây dựng với mục tiêu mang đến trải nghiệm hiện đại, mượt mà và thân thiện với người dùng.
+Dự án tập trung vào UI/UX, kèm theo một số tính năng mô phỏng hành vi thực tế như giỏ hàng và skeleton loading.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+⸻
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Công nghệ sử dụng
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Framework
+	•	Next.js (TypeScript)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Libraries
+	•	TailwindCSS
+	•	Shadcn UI
+	•	Framer Motion
+	•	Zustand
+	•	Lenis (smooth scroll)
 
-## Learn More
+⸻
 
-To learn more about Next.js, take a look at the following resources:
+## 🧭 Routing & Cấu trúc các trang
+- `/`: Trang chủ
+- `/free-entry-test`: Kiểm tra đầu vào đánh giá năng lực
+- `/about`: Thông tin về chúng tôi
+- `/blog`: Trang Blog
+- Các trang khoá học:
+  1. `/ielts`: IELTS
+  2. `/toeic`: TOEIC
+  3. `/hsk`: Tiếng Trung HSK
+  4. `/jlpt`: Tiếng Nhật JLPT
+  5. `/topik`: Tiếng Hàn TOPIK
+---------
+➡️ Nội dung của các khoá học và blog được render từ mock data trong folder `mock/.`
+## ✨ Tính năng nổi bật
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛒 Giỏ hàng khóa học
+	•	Thêm / xóa khóa học.
+	•	Lưu trữ bằng localStorage.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📰 Skeleton Loading cho Blog
+	•	Fake timeout để tạo hiệu ứng loading.
 
-## Deploy on Vercel
+🎨 UI/UX hiện đại
+	•	Smooth scroll (Lenis)
+	•	Animation trang (Framer Motion)
+	•	Component UI đồng nhất (Shadcn)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+⸻
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠 Những phần chưa hoàn thiện
+	•	Trang /free-entry-test mới hoàn thiện giao diện, chưa có bài test thật.
+	•	Chưa phát triển tính năng Authentication.
+	•	Chưa phát triển Checkout giỏ hàng
+	•	Dự án tập trung vào phần giao diện (frontend showcase).
