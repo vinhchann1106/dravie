@@ -6,6 +6,10 @@ DraVie là dự án Landing Page giới thiệu nền tảng học ngoại ngữ
 Dự án tập trung vào UI/UX, kèm theo một số tính năng mô phỏng hành vi thực tế như giỏ hàng và skeleton loading.
 
 ⸻
+🔗 Demo / Deploy
+
+Dự án đã được deploy tại:
+👉 https://dravie.vercel.app
 
 ## 🚀 Công nghệ sử dụng
 
