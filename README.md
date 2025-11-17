@@ -60,3 +60,14 @@ Libraries
 	•	Chưa phát triển tính năng Authentication.
 	•	Chưa phát triển Checkout giỏ hàng
 	•	Dự án tập trung vào phần giao diện (frontend showcase).
+## 📦 Cài đặt & chạy dự án
+```bash
+# Clone repo
+git clone https://github.com/vinhchann1106/dravie.git
+
+# Cài dependency
+npm install
+
+# Chạy development
+npm run dev
+```
