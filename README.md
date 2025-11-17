@@ -10,16 +10,16 @@ Dự án tập trung vào UI/UX, kèm theo một số tính năng mô phỏng h�
 ## 🚀 Công nghệ sử dụng
 
 Framework
+
 	•	Next.js (TypeScript)
 
 Libraries
+
 	•	TailwindCSS
 	•	Shadcn UI
 	•	Framer Motion
 	•	Zustand
 	•	Lenis (smooth scroll)
-
-⸻
 
 ## 🧭 Routing & Cấu trúc các trang
 - `/`: Trang chủ
@@ -37,18 +37,19 @@ Libraries
 ## ✨ Tính năng nổi bật
 
 🛒 Giỏ hàng khóa học
+
 	•	Thêm / xóa khóa học.
 	•	Lưu trữ bằng localStorage.
 
 📰 Skeleton Loading cho Blog
-	•	Fake timeout để tạo hiệu ứng loading.
 
+	•	Fake timeout để tạo hiệu ứng loading.
 🎨 UI/UX hiện đại
+
 	•	Smooth scroll (Lenis)
 	•	Animation trang (Framer Motion)
 	•	Component UI đồng nhất (Shadcn)
 
-⸻
 
 ## 🛠 Những phần chưa hoàn thiện
 	•	Trang /free-entry-test mới hoàn thiện giao diện, chưa có bài test thật.
